@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="38aa3fb82d96474d94b035e40b80f317" Name="Diagram1" ZoomLevel="76">
+        <EntityTypeShape EntityType="CM_INVOICEModel.T_CARTELLA_ORTODONTICA_DATI_CLINICI" Width="1.5" PointX="2.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="CM_INVOICEModel.T_LISTINO_PROCEDURE" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CM_INVOICEModel.T_LISTINO_RAGGRUPPAMENTI" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CM_INVOICEModel.T_LISTINO_SOTTOPROCEDURE" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="CM_INVOICEModel.FK_T_LISTINO_PROCEDURE_T_LISTINO_PROCEDURE" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CM_INVOICEModel.T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI" Width="1.5" PointX="8" PointY="2.25" />
+        <AssociationConnector Association="CM_INVOICEModel.FK_T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI_T_LISTINO_RAGGRUPPAMENTI" />
+        <EntityTypeShape EntityType="CM_INVOICEModel.T_LISTINO_PROCEDURE_SOTTOPROCEDURE" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="CM_INVOICEModel.T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE" Width="1.5" PointX="3.375" PointY="9.75" />
+        <EntityTypeShape EntityType="CM_INVOICEModel.T_TRATTAMENTI" Width="1.5" PointX="2.75" PointY="13.625" />
+        <EntityTypeShape EntityType="CM_INVOICEModel.T_ANAGRAFICA_PAZIENTI" Width="1.5" PointX="10.375" PointY="0.75" />
+        <AssociationConnector Association="CM_INVOICEModel.FK_T_ANAGRAFICA_PAZIENTI_OrigineCodPaziente" />
+        <AssociationConnector Association="CM_INVOICEModel.FK_T_ANAGRAFICA_PAZIENTI_T_ANAGRAFICA_PAZIENTI" />
+        <EntityTypeShape EntityType="CM_INVOICEModel.ANM_AllergieFarmacologiche" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CM_INVOICEModel.ANM_FarmaciAssunti" Width="1.5" PointX="12.375" PointY="3.75" />
+        <EntityTypeShape EntityType="CM_INVOICEModel.ANM_Patologie" Width="1.5" PointX="12.375" PointY="6.75" />
+        <EntityTypeShape EntityType="CM_INVOICEModel.T_TRATTAMENTI_NOTE" Width="1.5" PointX="12.375" PointY="9.75" />
+        <EntityTypeShape EntityType="CM_INVOICEModel.T_CARTELLA_ORTODONTICA_PROCEDURE" Width="1.5" PointX="3" PointY="3.625" />
+        <AssociationConnector Association="CM_INVOICEModel.FK_T_CARTELLA_ORTODONTICA_PROCEDURE_T_LISTINO_PROCEDURE" />
+        <EntityTypeShape EntityType="CM_INVOICEModel.T_AGENDA_APPUNTAMENTI" Width="1.5" PointX="14.375" PointY="0.75" />
+        <AssociationConnector Association="CM_INVOICEModel.FK_T_AGENDA_APPUNTAMENTI_T_ANAGRAFICA_PAZIENTI" />
+        <EntityTypeShape EntityType="CM_INVOICEModel.T_PRESCRIZIONE" Width="1.5" PointX="14.375" PointY="8.75" />
+        <EntityTypeShape EntityType="CM_INVOICEModel.T_ANAGRAFICA_FORNITORI" Width="1.5" PointX="5.375" PointY="15.75" />
+        <EntityTypeShape EntityType="CM_INVOICEModel.T_CARTELLA_ORTODONTICA_REFERTAZIONE" Width="1.5" PointX="5" PointY="12.5" />
+        <AssociationConnector Association="CM_INVOICEModel.FK_T_CARTELLA_ORTODONTICA_REFERTAZIONE_T_CARTELLA_ORTODONTICA_DATI_CLINICI" />
+        <AssociationConnector Association="CM_INVOICEModel.FK_T_CARTELLA_ORTODONTICA_REFERTAZIONE_T_TRATTAMENTI" />
+        <EntityTypeShape EntityType="CM_INVOICEModel.T_STUDI" Width="1.5" PointX="8.125" PointY="15.875" />
+        <AssociationConnector Association="CM_INVOICEModel.FK_T_ANAGRAFICA_PAZIENTI_Studio" />
+        <EntityTypeShape EntityType="CM_INVOICEModel.T_SETUP" Width="1.5" PointX="16.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CM_INVOICEModel.T_PRESC_DETTAGLIO" Width="1.5" PointX="16.625" PointY="9.625" />
+        <AssociationConnector Association="CM_INVOICEModel.FK_T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE_T_LISTINO_SOTTOPROCEDURE" />
+        <AssociationConnector Association="CM_INVOICEModel.FK_T_PRESC_DETTAGLIO_T_PRESCRIZIONE" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

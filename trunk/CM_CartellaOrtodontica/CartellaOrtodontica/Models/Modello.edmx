@@ -1,0 +1,1997 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CM_INVOICEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="T_AGENDA_APPUNTAMENTI">
+          <Key>
+            <PropertyRef Name="CodAppuntamento" />
+          </Key>
+          <Property Name="CodAppuntamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodPaziente" Type="int" Nullable="false" />
+          <Property Name="CodMedico" Type="int" Nullable="false" />
+          <Property Name="CodEquipe" Type="int" />
+          <Property Name="CodPoltrona" Type="int" Nullable="false" />
+          <Property Name="NTrattamento" Type="int" />
+          <Property Name="DataAppuntamento" Type="datetime" Nullable="false" />
+          <Property Name="DalleOre" Type="datetime" Nullable="false" />
+          <Property Name="AlleOre" Type="datetime" Nullable="false" />
+          <Property Name="Note" Type="varchar" MaxLength="1000" />
+          <Property Name="Stato" Type="int" />
+          <Property Name="TipoApp" Type="int" />
+          <Property Name="DataIns" Type="datetime" Nullable="false" />
+          <Property Name="InseritoDa" Type="varchar" MaxLength="50" />
+          <Property Name="UltimaModifica" Type="varchar" MaxLength="500" />
+          <Property Name="SMS" Type="bit" />
+          <Property Name="Spostato" Type="int" />
+          <Property Name="Completato" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CodImpegno" Type="int" />
+          <Property Name="DataUltimaModifica" Type="datetime" />
+          <Property Name="LastEdit" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="LastEditBy" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CodAppuntamento_Master" Type="varchar" MaxLength="20" />
+          <Property Name="CodImportazione" Type="int" />
+          <Property Name="ERP_NUM_CODAPPUNTAMENTO" Type="nvarchar" MaxLength="50" />
+          <Property Name="CodPrenotazione" Type="nvarchar" MaxLength="20" />
+          <Property Name="CodModuloPagamento" Type="int" />
+        </EntityType>
+        <EntityType Name="T_ANAGRAFICA_FORNITORI">
+          <Key>
+            <PropertyRef Name="CodFornitore" />
+          </Key>
+          <Property Name="CodFornitore" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cognome" Type="nvarchar" MaxLength="50" />
+          <Property Name="RagioneSociale" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Indirizzo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Citta" Type="nvarchar" MaxLength="50" />
+          <Property Name="Provincia" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nazione" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cap" Type="varchar" MaxLength="5" />
+          <Property Name="Comune" Type="nvarchar" MaxLength="50" />
+          <Property Name="PartitaIva" Type="nvarchar" MaxLength="50" />
+          <Property Name="CodiceFiscale" Type="nvarchar" MaxLength="50" />
+          <Property Name="IntestazioneFatt" Type="nvarchar" MaxLength="50" />
+          <Property Name="NIMS" Type="nvarchar" MaxLength="50" />
+          <Property Name="TelefonoCasa" Type="nvarchar" MaxLength="50" />
+          <Property Name="TelefonoUfficio" Type="nvarchar" MaxLength="50" />
+          <Property Name="TelefonoCell" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Odontotecnico" Type="bit" Nullable="false" />
+          <Property Name="ERP_NUM" Type="nchar" MaxLength="20" />
+          <Property Name="LastEdit" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="LastEditBy" Type="int" />
+        </EntityType>
+        <EntityType Name="T_ANAGRAFICA_PAZIENTI">
+          <Key>
+            <PropertyRef Name="CodPaziente" />
+          </Key>
+          <Property Name="CodPaziente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodTitolo" Type="int" />
+          <Property Name="Titolo" Type="varchar" MaxLength="50" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" />
+          <Property Name="Cognome" Type="varchar" MaxLength="50" />
+          <Property Name="Sesso" Type="varchar" MaxLength="1" />
+          <Property Name="Professione" Type="varchar" MaxLength="100" />
+          <Property Name="Nota" Type="varchar" MaxLength="500" />
+          <Property Name="Salute" Type="varchar" MaxLength="50" />
+          <Property Name="Indirizzo" Type="varchar" MaxLength="50" />
+          <Property Name="CAP" Type="varchar" MaxLength="10" />
+          <Property Name="Citta" Type="varchar" MaxLength="50" />
+          <Property Name="Provincia" Type="varchar" MaxLength="10" />
+          <Property Name="CodNazione" Type="varchar" MaxLength="2" />
+          <Property Name="TelCasa" Type="varchar" MaxLength="50" />
+          <Property Name="TelUff" Type="varchar" MaxLength="50" />
+          <Property Name="TelCell" Type="varchar" MaxLength="50" />
+          <Property Name="EMail" Type="varchar" MaxLength="100" />
+          <Property Name="Natoil" Type="datetime" />
+          <Property Name="CAPNasc" Type="varchar" MaxLength="10" />
+          <Property Name="CittaNasc" Type="varchar" MaxLength="50" />
+          <Property Name="ProvinciaNasc" Type="varchar" MaxLength="10" />
+          <Property Name="CodNazioneNasc" Type="varchar" MaxLength="2" />
+          <Property Name="CodFisc" Type="varchar" MaxLength="16" />
+          <Property Name="PartitaIVA" Type="nvarchar" MaxLength="16" />
+          <Property Name="Swift" Type="varchar" MaxLength="15" />
+          <Property Name="IBAN" Type="varchar" MaxLength="30" />
+          <Property Name="NListino" Type="int" />
+          <Property Name="Affidabilita" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CodInviato" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="InviatoDa" Type="varchar" MaxLength="50" />
+          <Property Name="CodPazfatt" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Foto" Type="image" />
+          <Property Name="Orari" Type="char" MaxLength="224" />
+          <Property Name="Resto" Type="float" />
+          <Property Name="PosizioneTicket" Type="int" />
+          <Property Name="MedCurante" Type="varchar" MaxLength="100" />
+          <Property Name="Dentista" Type="varchar" MaxLength="100" />
+          <Property Name="Studio" Type="int" />
+          <Property Name="Osservazioni" Type="varchar" MaxLength="5000" />
+          <Property Name="MisBande" Type="varchar" MaxLength="500" />
+          <Property Name="Terapia" Type="varchar" MaxLength="2" />
+          <Property Name="ERP_NUM" Type="nvarchar" MaxLength="20" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="UserName1" Type="varchar" MaxLength="50" />
+          <Property Name="Password1" Type="varchar" MaxLength="50" />
+          <Property Name="Permessi" Type="varchar" MaxLength="255" />
+          <Property Name="Infetto" Type="bit" />
+          <Property Name="Allergico" Type="bit" />
+          <Property Name="NoTesseraSanitaria" Type="varchar" MaxLength="50" />
+          <Property Name="CodiceConvenzione" Type="int" />
+          <Property Name="Convenzione" Type="bit" Nullable="false" />
+          <Property Name="NomeCartella" Type="nvarchar" MaxLength="100" />
+          <Property Name="InseritoDa" Type="varchar" MaxLength="50" />
+          <Property Name="UltimaModifica" Type="varchar" MaxLength="500" />
+          <Property Name="DataIns" Type="datetime" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="LastEdit" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="LastEditBy" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CodImportazione" Type="int" />
+          <Property Name="FatturareANome" Type="varchar" MaxLength="50" />
+          <Property Name="FatturareACognome" Type="varchar" MaxLength="50" />
+          <Property Name="FatturareAIndirizzo" Type="varchar" MaxLength="50" />
+          <Property Name="FatturareACAP" Type="varchar" MaxLength="10" />
+          <Property Name="FatturareACitta" Type="varchar" MaxLength="50" />
+          <Property Name="FatturareAProvincia" Type="varchar" MaxLength="10" />
+          <Property Name="FatturareACodNazione" Type="varchar" MaxLength="2" />
+          <Property Name="FatturareAPartitaIVA" Type="nvarchar" MaxLength="16" />
+          <Property Name="CodMedicoRiferimento" Type="int" />
+          <Property Name="OrigineCliente" Type="tinyint" Nullable="false" />
+          <Property Name="OrigineCodPaziente" Type="int" />
+          <Property Name="OrigineCodMedico" Type="int" />
+          <Property Name="OrigineMedicoEsterno" Type="nvarchar" MaxLength="100" />
+          <Property Name="Note" Type="nvarchar(max)" />
+          <Property Name="CodiceEsenzione" Type="varchar" MaxLength="20" />
+          <Property Name="IscrittoAllaNewsletter" Type="bit" Nullable="false" />
+          <Property Name="CodCapoFamiglia" Type="int" />
+        </EntityType>
+        <EntityType Name="T_CARTELLA_ORTODONTICA_DATI_CLINICI">
+          <Key>
+            <PropertyRef Name="CodDato" />
+          </Key>
+          <Property Name="CodDato" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Descrizione" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="In_Uso" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_CARTELLA_ORTODONTICA_PROCEDURE">
+          <Key>
+            <PropertyRef Name="CodProcedura" />
+          </Key>
+          <Property Name="CodProcedura" Type="int" Nullable="false" />
+          <Property Name="In_Uso" Type="bit" Nullable="false" />
+          <Property Name="InizioNuovaTerapia" Type="bit" Nullable="false" />
+          <Property Name="Controllo" Type="bit" Nullable="false" />
+          <Property Name="Diagnostico" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI">
+          <Key>
+            <PropertyRef Name="CodRaggruppamento" />
+          </Key>
+          <Property Name="CodRaggruppamento" Type="int" Nullable="false" />
+          <Property Name="In_Uso" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_CARTELLA_ORTODONTICA_REFERTAZIONE">
+          <Key>
+            <PropertyRef Name="NTrattamento" />
+            <PropertyRef Name="CodDato" />
+          </Key>
+          <Property Name="NTrattamento" Type="int" Nullable="false" />
+          <Property Name="CodDato" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Valore" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Osservazioni" Type="varchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE">
+          <Key>
+            <PropertyRef Name="CodSottoprocedura" />
+          </Key>
+          <Property Name="CodSottoprocedura" Type="int" Nullable="false" />
+          <Property Name="In_Uso" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_LISTINO_PROCEDURE">
+          <Key>
+            <PropertyRef Name="CodProcedura" />
+          </Key>
+          <Property Name="CodProcedura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodRaggruppamento" Type="int" />
+          <Property Name="Descrizione" Type="varchar" MaxLength="255" />
+          <Property Name="Immagine" Type="varchar" MaxLength="255" />
+          <Property Name="Foto" Type="image" />
+          <Property Name="ColPreventivato" Type="int" />
+          <Property Name="ColEseguito" Type="int" />
+          <Property Name="In_uso" Type="bit" />
+          <Property Name="Note" Type="varchar" MaxLength="5000" />
+          <Property Name="Durata" Type="int" />
+          <Property Name="Prezzo" Type="float" />
+          <Property Name="Generale" Type="bit" Nullable="false" />
+          <Property Name="PrezzoImposto" Type="bit" Nullable="false" />
+          <Property Name="CodRegionale" Type="varchar" MaxLength="20" />
+          <Property Name="TipoConto" Type="tinyint" />
+          <Property Name="CodConto" Type="varchar" MaxLength="20" />
+          <Property Name="DataIns" Type="datetime" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="LastEdit" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="LastEditBy" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ERP_NUM" Type="nvarchar" MaxLength="20" />
+          <Property Name="QuotaVariabile" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ImportoFissoQV" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CodERP" Type="varchar" MaxLength="20" />
+          <Property Name="Interna" Type="bit" />
+          <Property Name="% Quota Variabile" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="IVA" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Stato_Dente_Dopo_Esecuzione" Type="char" MaxLength="1" />
+          <Property Name="NumeroPianoDeiConti" Type="int" />
+        </EntityType>
+        <EntityType Name="T_LISTINO_PROCEDURE_SOTTOPROCEDURE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodProcedura" Type="int" Nullable="false" />
+          <Property Name="CodSottoprocedura" Type="int" Nullable="false" />
+          <Property Name="Durata" Type="int" />
+          <Property Name="NumeroAppuntamento" Type="int" />
+          <Property Name="Progressione" Type="int" />
+          <Property Name="PiuDenti" Type="bit" />
+          <Property Name="SingPiu" Type="char" MaxLength="1" />
+          <Property Name="LastEdit" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="LastEditBy" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="T_LISTINO_RAGGRUPPAMENTI">
+          <Key>
+            <PropertyRef Name="CodRaggruppamento" />
+          </Key>
+          <Property Name="CodRaggruppamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodSuperRagg" Type="int" />
+          <Property Name="RaggruppamentoGenerico" Type="bit" Nullable="false" />
+          <Property Name="Descrizione" Type="varchar" MaxLength="50" />
+          <Property Name="CostoOrario" Type="float" />
+          <Property Name="CostoOrarioAss" Type="float" />
+          <Property Name="DataIns" Type="datetime" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="Simbolo" Type="varchar" MaxLength="255" />
+          <Property Name="Priorita" Type="int" />
+          <Property Name="Colore" Type="int" />
+          <Property Name="LastEdit" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="LastEditBy" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ERP_NUM" Type="nvarchar" MaxLength="20" />
+          <Property Name="InUso" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_LISTINO_SOTTOPROCEDURE">
+          <Key>
+            <PropertyRef Name="CodSottoprocedura" />
+          </Key>
+          <Property Name="CodSottoprocedura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodPrestazione" Type="int" />
+          <Property Name="Descrizione" Type="varchar" MaxLength="255" />
+          <Property Name="Immagine" Type="varchar" MaxLength="255" />
+          <Property Name="Foto" Type="image" />
+          <Property Name="Mancato" Type="bit" />
+          <Property Name="In_uso" Type="bit" />
+          <Property Name="Assistente" Type="bit" />
+          <Property Name="TipoEseguito" Type="varchar" MaxLength="1" />
+          <Property Name="Note" Type="varchar" MaxLength="4000" />
+          <Property Name="Frase" Type="varchar" MaxLength="500" />
+          <Property Name="SMS" Type="bit" />
+          <Property Name="Generale" Type="bit" />
+          <Property Name="Accorpamento" Type="bit" />
+          <Property Name="Lunghezza" Type="bit" />
+          <Property Name="Diametro" Type="bit" />
+          <Property Name="Colore" Type="bit" />
+          <Property Name="NumeroProg" Type="bit" />
+          <Property Name="Conformita" Type="varchar" MaxLength="2000" />
+          <Property Name="UsaPrezzo" Type="bit" />
+          <Property Name="PrezzoGen" Type="bit" />
+          <Property Name="PerPiuDenti" Type="varchar" MaxLength="1" />
+          <Property Name="Diretto" Type="bit" />
+          <Property Name="Durata" Type="int" />
+          <Property Name="PrezzoPrestazioni" Type="float" />
+          <Property Name="PrezzoVassoio" Type="float" />
+          <Property Name="PrezzoPrescrizioni" Type="float" />
+          <Property Name="CodRegionale" Type="varchar" MaxLength="20" />
+          <Property Name="TipoConto" Type="tinyint" />
+          <Property Name="CodConto" Type="varchar" MaxLength="20" />
+          <Property Name="DataIns" Type="datetime" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="LastEdit" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="LastEditBy" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ERP_NUM" Type="nvarchar" MaxLength="20" />
+          <Property Name="QuotaVariabile" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ImportoFissoQV" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CodERP" Type="varchar" MaxLength="20" />
+          <Property Name="Interna" Type="bit" />
+          <Property Name="Categoria" Type="int" />
+          <Property Name="Vassoio" Type="int" />
+          <Property Name="GestioneMateriale" Type="bit" />
+          <Property Name="Medico" Type="bit" />
+          <Property Name="PrimaVisita" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ApprofondimentoDiagnostici" Type="bit" Nullable="false" />
+          <Property Name="UnaSolaOccorrenzaPer" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_PRESC_DETTAGLIO">
+          <Key>
+            <PropertyRef Name="Codice" />
+          </Key>
+          <Property Name="Codice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Numero" Type="varchar" MaxLength="50" />
+          <Property Name="TipoProtesi" Type="int" />
+          <Property Name="PrezzoSingolo" Type="float" />
+          <Property Name="Quantita" Type="int" />
+          <Property Name="Num_Trat" Type="int" />
+          <Property Name="CodPrescrizione" Type="int" />
+          <Property Name="ColoreDenti" Type="varchar" MaxLength="50" />
+          <Property Name="CodMedico" Type="int" />
+          <Property Name="NumCarrello" Type="int" />
+          <Property Name="CodiceCapacitaProduttiva" Type="int" />
+          <Property Name="CodOdontotecnico" Type="int" />
+          <Property Name="DataConsegna" Type="datetime" />
+          <Property Name="InseritoDa" Type="varchar" MaxLength="50" />
+          <Property Name="UltimaModifica" Type="varchar" MaxLength="500" />
+          <Property Name="LastEdit" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="LastEditBy" Type="int" />
+          <Property Name="CodImportazione" Type="int" />
+          <Property Name="ControlloQualita" Type="bit" Nullable="false" />
+          <Property Name="Progressione" Type="int" />
+        </EntityType>
+        <EntityType Name="T_PRESCRIZIONE">
+          <Key>
+            <PropertyRef Name="CodPrescrizione" />
+          </Key>
+          <Property Name="CodPrescrizione" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Data" Type="datetime" />
+          <Property Name="CodicePaziente" Type="int" />
+          <Property Name="Numero" Type="varchar" MaxLength="50" />
+          <Property Name="CodiceLaboratorio" Type="int" />
+          <Property Name="NumeroPiano" Type="int" Nullable="false" />
+          <Property Name="CodiceMedico" Type="int" />
+          <Property Name="Consegna" Type="datetime" />
+          <Property Name="ConsegnaOre" Type="datetime" />
+          <Property Name="ColoreDenti" Type="varchar" MaxLength="10" />
+          <Property Name="Allergie" Type="varchar" MaxLength="50" />
+          <Property Name="Intolleranze" Type="varchar" MaxLength="50" />
+          <Property Name="Problematiche" Type="varchar" MaxLength="50" />
+          <Property Name="Handicap" Type="varchar" MaxLength="50" />
+          <Property Name="ArcoFacciale" Type="varchar" MaxLength="50" />
+          <Property Name="RegOcclusali" Type="varchar" MaxLength="50" />
+          <Property Name="Impronte" Type="varchar" MaxLength="50" />
+          <Property Name="Rilevate" Type="datetime" />
+          <Property Name="Disinfettate" Type="varchar" MaxLength="50" />
+          <Property Name="Imballaggio" Type="varchar" MaxLength="50" />
+          <Property Name="Prezzo" Type="float" />
+          <Property Name="Appunti" Type="varchar" MaxLength="1000" />
+          <Property Name="Firma" Type="varchar" MaxLength="20" />
+          <Property Name="NotePers" Type="varchar" MaxLength="1000" />
+          <Property Name="NumOrdine" Type="nvarchar" MaxLength="20" />
+          <Property Name="Shipped" Type="bit" />
+          <Property Name="InseritoDa" Type="varchar" MaxLength="50" />
+          <Property Name="UltimaModifica" Type="varchar" MaxLength="500" />
+          <Property Name="LastEdit" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="LastEditBy" Type="int" />
+          <Property Name="CodImportazione" Type="int" />
+        </EntityType>
+        <EntityType Name="T_SETUP">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Valore" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Descrizione" Type="nvarchar" MaxLength="100" />
+          <Property Name="Editable" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_STUDI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descrizione" Type="varchar" MaxLength="100" />
+          <Property Name="LastEdit" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="LastEditBy" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CartellaImmagini" Type="varchar" MaxLength="100" />
+          <Property Name="DirettoreSanitario" Type="varchar" MaxLength="100" />
+          <Property Name="IndirizzoStruttura" Type="varchar" MaxLength="300" />
+          <Property Name="NomeStruttura" Type="varchar" MaxLength="50" />
+          <Property Name="Colore" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_TRATTAMENTI">
+          <Key>
+            <PropertyRef Name="NTrattamento" />
+          </Key>
+          <Property Name="NTrattamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descrizione" Type="nvarchar" MaxLength="50" />
+          <Property Name="CodPaziente" Type="int" Nullable="false" />
+          <Property Name="NumPianoDiCura" Type="int" Nullable="false" />
+          <Property Name="NPreventivo" Type="int" />
+          <Property Name="TotalePreventivo" Type="float" />
+          <Property Name="CodListino" Type="int" />
+          <Property Name="CodConvenzione" Type="int" />
+          <Property Name="CodSuperRaggruppamento" Type="int" />
+          <Property Name="CodRaggruppamento" Type="int" />
+          <Property Name="CodProceduraPadre" Type="int" />
+          <Property Name="CodProcedura" Type="int" />
+          <Property Name="CodProceduraSottoproceduraId" Type="int" />
+          <Property Name="CodSottoprocedura" Type="int" />
+          <Property Name="CodMicroprocedura" Type="int" />
+          <Property Name="CodiceStato" Type="varchar" MaxLength="5" />
+          <Property Name="CodMedico" Type="int" />
+          <Property Name="CodPadre" Type="int" />
+          <Property Name="Dente_1" Type="int" />
+          <Property Name="Dente_2" Type="int" />
+          <Property Name="Ndenti" Type="int" />
+          <Property Name="Prezzo" Type="float" />
+          <Property Name="Incassato" Type="float" />
+          <Property Name="DataPreventivo" Type="datetime" />
+          <Property Name="Nota" Type="varchar" MaxLength="1000" />
+          <Property Name="DataEsecuzione" Type="datetime" />
+          <Property Name="NumeroAppuntamento" Type="int" />
+          <Property Name="Progressione" Type="int" />
+          <Property Name="ProgressioneProcedura" Type="int" />
+          <Property Name="AppCam" Type="bit" />
+          <Property Name="Accettato" Type="int" />
+          <Property Name="Pagato" Type="bit" Nullable="false" />
+          <Property Name="Fatturato" Type="bit" />
+          <Property Name="CodLaboratorio" Type="int" />
+          <Property Name="Tipo" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Lunghezza" Type="float" />
+          <Property Name="Diametro" Type="float" />
+          <Property Name="Concordato" Type="bit" Nullable="false" />
+          <Property Name="CodIncasso" Type="int" />
+          <Property Name="PrezzoListinoTeorico" Type="float" />
+          <Property Name="PrezzoListinoCommerciale" Type="float" />
+          <Property Name="PrezzoConc" Type="float" />
+          <Property Name="PrezzoDaConcordare" Type="float" />
+          <Property Name="PrezzoPaziente" Type="float" />
+          <Property Name="PrezzoEnte" Type="float" />
+          <Property Name="Generico" Type="bit" Nullable="false" />
+          <Property Name="Cancellato" Type="bit" Nullable="false" />
+          <Property Name="ConteggiaConcordato" Type="bit" />
+          <Property Name="Modificato" Type="bit" Nullable="false" />
+          <Property Name="InseritoDa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UltimaModifica" Type="varchar" MaxLength="50" />
+          <Property Name="DataIns" Type="datetime" Nullable="false" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="LastEdit" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="LastEditBy" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NTrattamento_Master" Type="int" />
+          <Property Name="CodImportazione" Type="int" />
+          <Property Name="ERP_NUM_PDC" Type="nvarchar" MaxLength="20" />
+          <Property Name="ERP_NUM_PDC_ROW" Type="nvarchar" MaxLength="20" />
+          <Property Name="ImportoSconto" Type="float" />
+        </EntityType>
+        <EntityType Name="T_TRATTAMENTI_NOTE">
+          <Key>
+            <PropertyRef Name="Codnota" />
+          </Key>
+          <Property Name="Codnota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codpaziente" Type="int" Nullable="false" />
+          <Property Name="Eseguito" Type="varchar" MaxLength="5000" />
+          <Property Name="Daeseguire" Type="varchar" MaxLength="5000" />
+          <Property Name="OsservazioniGenerali" Type="varchar" MaxLength="5000" />
+          <Property Name="DataIns" Type="datetime" Nullable="false" />
+          <Property Name="DataMod" Type="datetime" />
+          <Property Name="InseritoDa" Type="nchar" MaxLength="50" />
+          <Property Name="UltimaModifica" Type="nchar" MaxLength="50" />
+          <Property Name="InseritoDaCodMedico" Type="int" />
+          <Property Name="NumPianoDiCura" Type="int" Nullable="false" />
+          <Property Name="NTrattamento" Type="int" />
+        </EntityType>
+        <!--Errori trovati durante la generazione:
+avviso 6002: Nessuna chiave primaria definita per la tabella/visualizzazione 'CM_DB_2_TEST.dbo.ANM_AllergieFarmacologiche'. La chiave è stata dedotta e la definizione è stata creata come tabella/visualizzazione di sola lettura.-->
+        <EntityType Name="ANM_AllergieFarmacologiche">
+          <Key>
+            <PropertyRef Name="CodPaziente" />
+          </Key>
+          <Property Name="CodPaziente" Type="int" Nullable="false" />
+          <Property Name="Farmaco" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errori trovati durante la generazione:
+avviso 6002: Nessuna chiave primaria definita per la tabella/visualizzazione 'CM_DB_2_TEST.dbo.ANM_FarmaciAssunti'. La chiave è stata dedotta e la definizione è stata creata come tabella/visualizzazione di sola lettura.-->
+        <EntityType Name="ANM_FarmaciAssunti">
+          <Key>
+            <PropertyRef Name="CodPaziente" />
+          </Key>
+          <Property Name="CodPaziente" Type="int" Nullable="false" />
+          <Property Name="Farmaco" Type="varchar" MaxLength="451" />
+        </EntityType>
+        <!--Errori trovati durante la generazione:
+avviso 6002: Nessuna chiave primaria definita per la tabella/visualizzazione 'CM_DB_2_TEST.dbo.ANM_Patologie'. La chiave è stata dedotta e la definizione è stata creata come tabella/visualizzazione di sola lettura.-->
+        <EntityType Name="ANM_Patologie">
+          <Key>
+            <PropertyRef Name="CodPaziente" />
+            <PropertyRef Name="DescrizionePatologia" />
+            <PropertyRef Name="CodPatologia" />
+          </Key>
+          <Property Name="CodPaziente" Type="int" Nullable="false" />
+          <Property Name="DescrizionePatologia" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CodPatologia" Type="int" Nullable="false" />
+          <Property Name="Note" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_T_AGENDA_APPUNTAMENTI_T_ANAGRAFICA_PAZIENTI">
+          <End Role="T_ANAGRAFICA_PAZIENTI" Type="Self.T_ANAGRAFICA_PAZIENTI" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="T_AGENDA_APPUNTAMENTI" Type="Self.T_AGENDA_APPUNTAMENTI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ANAGRAFICA_PAZIENTI">
+              <PropertyRef Name="CodPaziente" />
+            </Principal>
+            <Dependent Role="T_AGENDA_APPUNTAMENTI">
+              <PropertyRef Name="CodPaziente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_ANAGRAFICA_PAZIENTI_OrigineCodPaziente">
+          <End Role="T_ANAGRAFICA_PAZIENTI" Type="Self.T_ANAGRAFICA_PAZIENTI" Multiplicity="0..1" />
+          <End Role="T_ANAGRAFICA_PAZIENTI1" Type="Self.T_ANAGRAFICA_PAZIENTI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ANAGRAFICA_PAZIENTI">
+              <PropertyRef Name="CodPaziente" />
+            </Principal>
+            <Dependent Role="T_ANAGRAFICA_PAZIENTI1">
+              <PropertyRef Name="OrigineCodPaziente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_ANAGRAFICA_PAZIENTI_Studio">
+          <End Role="T_STUDI" Type="Self.T_STUDI" Multiplicity="0..1" />
+          <End Role="T_ANAGRAFICA_PAZIENTI" Type="Self.T_ANAGRAFICA_PAZIENTI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_STUDI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ANAGRAFICA_PAZIENTI">
+              <PropertyRef Name="Studio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_ANAGRAFICA_PAZIENTI_T_ANAGRAFICA_PAZIENTI">
+          <End Role="T_ANAGRAFICA_PAZIENTI" Type="Self.T_ANAGRAFICA_PAZIENTI" Multiplicity="1" />
+          <End Role="T_ANAGRAFICA_PAZIENTI1" Type="Self.T_ANAGRAFICA_PAZIENTI" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="T_ANAGRAFICA_PAZIENTI">
+              <PropertyRef Name="CodPaziente" />
+            </Principal>
+            <Dependent Role="T_ANAGRAFICA_PAZIENTI1">
+              <PropertyRef Name="CodPaziente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_CARTELLA_ORTODONTICA_PROCEDURE_T_LISTINO_PROCEDURE">
+          <End Role="T_LISTINO_PROCEDURE" Type="Self.T_LISTINO_PROCEDURE" Multiplicity="1" />
+          <End Role="T_CARTELLA_ORTODONTICA_PROCEDURE" Type="Self.T_CARTELLA_ORTODONTICA_PROCEDURE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="T_LISTINO_PROCEDURE">
+              <PropertyRef Name="CodProcedura" />
+            </Principal>
+            <Dependent Role="T_CARTELLA_ORTODONTICA_PROCEDURE">
+              <PropertyRef Name="CodProcedura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI_T_LISTINO_RAGGRUPPAMENTI">
+          <End Role="T_LISTINO_RAGGRUPPAMENTI" Type="Self.T_LISTINO_RAGGRUPPAMENTI" Multiplicity="1" />
+          <End Role="T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI" Type="Self.T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="T_LISTINO_RAGGRUPPAMENTI">
+              <PropertyRef Name="CodRaggruppamento" />
+            </Principal>
+            <Dependent Role="T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI">
+              <PropertyRef Name="CodRaggruppamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_CARTELLA_ORTODONTICA_REFERTAZIONE_T_CARTELLA_ORTODONTICA_DATI_CLINICI">
+          <End Role="T_CARTELLA_ORTODONTICA_DATI_CLINICI" Type="Self.T_CARTELLA_ORTODONTICA_DATI_CLINICI" Multiplicity="1" />
+          <End Role="T_CARTELLA_ORTODONTICA_REFERTAZIONE" Type="Self.T_CARTELLA_ORTODONTICA_REFERTAZIONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_CARTELLA_ORTODONTICA_DATI_CLINICI">
+              <PropertyRef Name="CodDato" />
+            </Principal>
+            <Dependent Role="T_CARTELLA_ORTODONTICA_REFERTAZIONE">
+              <PropertyRef Name="CodDato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_CARTELLA_ORTODONTICA_REFERTAZIONE_T_TRATTAMENTI">
+          <End Role="T_TRATTAMENTI" Type="Self.T_TRATTAMENTI" Multiplicity="1" />
+          <End Role="T_CARTELLA_ORTODONTICA_REFERTAZIONE" Type="Self.T_CARTELLA_ORTODONTICA_REFERTAZIONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_TRATTAMENTI">
+              <PropertyRef Name="NTrattamento" />
+            </Principal>
+            <Dependent Role="T_CARTELLA_ORTODONTICA_REFERTAZIONE">
+              <PropertyRef Name="NTrattamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE_T_LISTINO_SOTTOPROCEDURE">
+          <End Role="T_LISTINO_SOTTOPROCEDURE" Type="Self.T_LISTINO_SOTTOPROCEDURE" Multiplicity="1" />
+          <End Role="T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE" Type="Self.T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="T_LISTINO_SOTTOPROCEDURE">
+              <PropertyRef Name="CodSottoprocedura" />
+            </Principal>
+            <Dependent Role="T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE">
+              <PropertyRef Name="CodSottoprocedura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_LISTINO_PROCEDURE_T_LISTINO_PROCEDURE">
+          <End Role="T_LISTINO_PROCEDURE" Type="Self.T_LISTINO_PROCEDURE" Multiplicity="1" />
+          <End Role="T_LISTINO_PROCEDURE1" Type="Self.T_LISTINO_PROCEDURE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="T_LISTINO_PROCEDURE">
+              <PropertyRef Name="CodProcedura" />
+            </Principal>
+            <Dependent Role="T_LISTINO_PROCEDURE1">
+              <PropertyRef Name="CodProcedura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_PRESC_DETTAGLIO_T_PRESCRIZIONE">
+          <End Role="T_PRESCRIZIONE" Type="Self.T_PRESCRIZIONE" Multiplicity="0..1" />
+          <End Role="T_PRESC_DETTAGLIO" Type="Self.T_PRESC_DETTAGLIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_PRESCRIZIONE">
+              <PropertyRef Name="CodPrescrizione" />
+            </Principal>
+            <Dependent Role="T_PRESC_DETTAGLIO">
+              <PropertyRef Name="CodPrescrizione" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CM_INVOICEModelStoreContainer">
+          <EntitySet Name="T_AGENDA_APPUNTAMENTI" EntityType="Self.T_AGENDA_APPUNTAMENTI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_ANAGRAFICA_FORNITORI" EntityType="Self.T_ANAGRAFICA_FORNITORI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_ANAGRAFICA_PAZIENTI" EntityType="Self.T_ANAGRAFICA_PAZIENTI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_CARTELLA_ORTODONTICA_DATI_CLINICI" EntityType="Self.T_CARTELLA_ORTODONTICA_DATI_CLINICI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_CARTELLA_ORTODONTICA_PROCEDURE" EntityType="Self.T_CARTELLA_ORTODONTICA_PROCEDURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI" EntityType="Self.T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_CARTELLA_ORTODONTICA_REFERTAZIONE" EntityType="Self.T_CARTELLA_ORTODONTICA_REFERTAZIONE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE" EntityType="Self.T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_LISTINO_PROCEDURE" EntityType="Self.T_LISTINO_PROCEDURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_LISTINO_PROCEDURE_SOTTOPROCEDURE" EntityType="Self.T_LISTINO_PROCEDURE_SOTTOPROCEDURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_LISTINO_RAGGRUPPAMENTI" EntityType="Self.T_LISTINO_RAGGRUPPAMENTI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_LISTINO_SOTTOPROCEDURE" EntityType="Self.T_LISTINO_SOTTOPROCEDURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_PRESC_DETTAGLIO" EntityType="Self.T_PRESC_DETTAGLIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_PRESCRIZIONE" EntityType="Self.T_PRESCRIZIONE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_SETUP" EntityType="Self.T_SETUP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_STUDI" EntityType="Self.T_STUDI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_TRATTAMENTI" EntityType="Self.T_TRATTAMENTI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_TRATTAMENTI_NOTE" EntityType="Self.T_TRATTAMENTI_NOTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ANM_AllergieFarmacologiche" EntityType="Self.ANM_AllergieFarmacologiche" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ANM_AllergieFarmacologiche].[CodPaziente] AS [CodPaziente], 
+    [ANM_AllergieFarmacologiche].[Farmaco] AS [Farmaco]
+    FROM [dbo].[ANM_AllergieFarmacologiche] AS [ANM_AllergieFarmacologiche]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ANM_FarmaciAssunti" EntityType="Self.ANM_FarmaciAssunti" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ANM_FarmaciAssunti].[CodPaziente] AS [CodPaziente], 
+    [ANM_FarmaciAssunti].[Farmaco] AS [Farmaco]
+    FROM [dbo].[ANM_FarmaciAssunti] AS [ANM_FarmaciAssunti]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ANM_Patologie" EntityType="Self.ANM_Patologie" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ANM_Patologie].[CodPaziente] AS [CodPaziente], 
+    [ANM_Patologie].[DescrizionePatologia] AS [DescrizionePatologia], 
+    [ANM_Patologie].[CodPatologia] AS [CodPatologia], 
+    [ANM_Patologie].[Note] AS [Note]
+    FROM [dbo].[ANM_Patologie] AS [ANM_Patologie]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_T_AGENDA_APPUNTAMENTI_T_ANAGRAFICA_PAZIENTI" Association="Self.FK_T_AGENDA_APPUNTAMENTI_T_ANAGRAFICA_PAZIENTI">
+            <End Role="T_ANAGRAFICA_PAZIENTI" EntitySet="T_ANAGRAFICA_PAZIENTI" />
+            <End Role="T_AGENDA_APPUNTAMENTI" EntitySet="T_AGENDA_APPUNTAMENTI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_ANAGRAFICA_PAZIENTI_OrigineCodPaziente" Association="Self.FK_T_ANAGRAFICA_PAZIENTI_OrigineCodPaziente">
+            <End Role="T_ANAGRAFICA_PAZIENTI" EntitySet="T_ANAGRAFICA_PAZIENTI" />
+            <End Role="T_ANAGRAFICA_PAZIENTI1" EntitySet="T_ANAGRAFICA_PAZIENTI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_ANAGRAFICA_PAZIENTI_Studio" Association="Self.FK_T_ANAGRAFICA_PAZIENTI_Studio">
+            <End Role="T_STUDI" EntitySet="T_STUDI" />
+            <End Role="T_ANAGRAFICA_PAZIENTI" EntitySet="T_ANAGRAFICA_PAZIENTI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_ANAGRAFICA_PAZIENTI_T_ANAGRAFICA_PAZIENTI" Association="Self.FK_T_ANAGRAFICA_PAZIENTI_T_ANAGRAFICA_PAZIENTI">
+            <End Role="T_ANAGRAFICA_PAZIENTI" EntitySet="T_ANAGRAFICA_PAZIENTI" />
+            <End Role="T_ANAGRAFICA_PAZIENTI1" EntitySet="T_ANAGRAFICA_PAZIENTI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_CARTELLA_ORTODONTICA_PROCEDURE_T_LISTINO_PROCEDURE" Association="Self.FK_T_CARTELLA_ORTODONTICA_PROCEDURE_T_LISTINO_PROCEDURE">
+            <End Role="T_LISTINO_PROCEDURE" EntitySet="T_LISTINO_PROCEDURE" />
+            <End Role="T_CARTELLA_ORTODONTICA_PROCEDURE" EntitySet="T_CARTELLA_ORTODONTICA_PROCEDURE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI_T_LISTINO_RAGGRUPPAMENTI" Association="Self.FK_T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI_T_LISTINO_RAGGRUPPAMENTI">
+            <End Role="T_LISTINO_RAGGRUPPAMENTI" EntitySet="T_LISTINO_RAGGRUPPAMENTI" />
+            <End Role="T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI" EntitySet="T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_CARTELLA_ORTODONTICA_REFERTAZIONE_T_CARTELLA_ORTODONTICA_DATI_CLINICI" Association="Self.FK_T_CARTELLA_ORTODONTICA_REFERTAZIONE_T_CARTELLA_ORTODONTICA_DATI_CLINICI">
+            <End Role="T_CARTELLA_ORTODONTICA_DATI_CLINICI" EntitySet="T_CARTELLA_ORTODONTICA_DATI_CLINICI" />
+            <End Role="T_CARTELLA_ORTODONTICA_REFERTAZIONE" EntitySet="T_CARTELLA_ORTODONTICA_REFERTAZIONE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_CARTELLA_ORTODONTICA_REFERTAZIONE_T_TRATTAMENTI" Association="Self.FK_T_CARTELLA_ORTODONTICA_REFERTAZIONE_T_TRATTAMENTI">
+            <End Role="T_TRATTAMENTI" EntitySet="T_TRATTAMENTI" />
+            <End Role="T_CARTELLA_ORTODONTICA_REFERTAZIONE" EntitySet="T_CARTELLA_ORTODONTICA_REFERTAZIONE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE_T_LISTINO_SOTTOPROCEDURE" Association="Self.FK_T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE_T_LISTINO_SOTTOPROCEDURE">
+            <End Role="T_LISTINO_SOTTOPROCEDURE" EntitySet="T_LISTINO_SOTTOPROCEDURE" />
+            <End Role="T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE" EntitySet="T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_LISTINO_PROCEDURE_T_LISTINO_PROCEDURE" Association="Self.FK_T_LISTINO_PROCEDURE_T_LISTINO_PROCEDURE">
+            <End Role="T_LISTINO_PROCEDURE" EntitySet="T_LISTINO_PROCEDURE" />
+            <End Role="T_LISTINO_PROCEDURE1" EntitySet="T_LISTINO_PROCEDURE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_PRESC_DETTAGLIO_T_PRESCRIZIONE" Association="Self.FK_T_PRESC_DETTAGLIO_T_PRESCRIZIONE">
+            <End Role="T_PRESCRIZIONE" EntitySet="T_PRESCRIZIONE" />
+            <End Role="T_PRESC_DETTAGLIO" EntitySet="T_PRESC_DETTAGLIO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CM_INVOICEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="T_CARTELLA_ORTODONTICA_DATI_CLINICI">
+          <Key>
+            <PropertyRef Name="CodDato" />
+          </Key>
+          <Property Name="CodDato" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descrizione" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="In_Uso" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="T_CARTELLA_ORTODONTICA_REFERTAZIONE" Relationship="CM_INVOICEModel.FK_T_CARTELLA_ORTODONTICA_REFERTAZIONE_T_CARTELLA_ORTODONTICA_DATI_CLINICI" FromRole="T_CARTELLA_ORTODONTICA_DATI_CLINICI" ToRole="T_CARTELLA_ORTODONTICA_REFERTAZIONE" />
+        </EntityType>
+        <EntityType Name="T_LISTINO_PROCEDURE">
+          <Key>
+            <PropertyRef Name="CodProcedura" />
+          </Key>
+          <Property Name="CodProcedura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodRaggruppamento" Type="Int32" />
+          <Property Name="Descrizione" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Immagine" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ColPreventivato" Type="Int32" />
+          <Property Name="ColEseguito" Type="Int32" />
+          <Property Name="In_uso" Type="Boolean" />
+          <Property Name="Note" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Durata" Type="Int32" />
+          <Property Name="Prezzo" Type="Double" />
+          <Property Name="Generale" Type="Boolean" Nullable="false" />
+          <Property Name="PrezzoImposto" Type="Boolean" Nullable="false" />
+          <Property Name="CodRegionale" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TipoConto" Type="Byte" />
+          <Property Name="CodConto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DataIns" Type="DateTime" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
+          <Property Name="LastEdit" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="LastEditBy" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ERP_NUM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="QuotaVariabile" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ImportoFissoQV" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CodERP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Interna" Type="Boolean" />
+          <Property Name="C__Quota_Variabile" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IVA" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Stato_Dente_Dopo_Esecuzione" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="NumeroPianoDeiConti" Type="Int32" />
+          <NavigationProperty Name="T_LISTINO_PROCEDURE1" Relationship="Self.FK_T_LISTINO_PROCEDURE_T_LISTINO_PROCEDURE" FromRole="T_LISTINO_PROCEDURE" ToRole="T_LISTINO_PROCEDURE1" />
+          <NavigationProperty Name="T_LISTINO_PROCEDURE2" Relationship="Self.FK_T_LISTINO_PROCEDURE_T_LISTINO_PROCEDURE" FromRole="T_LISTINO_PROCEDURE1" ToRole="T_LISTINO_PROCEDURE" />
+          <NavigationProperty Name="T_CARTELLA_ORTODONTICA_PROCEDURE" Relationship="CM_INVOICEModel.FK_T_CARTELLA_ORTODONTICA_PROCEDURE_T_LISTINO_PROCEDURE" FromRole="T_LISTINO_PROCEDURE" ToRole="T_CARTELLA_ORTODONTICA_PROCEDURE" />
+        </EntityType>
+        <EntityType Name="T_LISTINO_RAGGRUPPAMENTI">
+          <Key>
+            <PropertyRef Name="CodRaggruppamento" />
+          </Key>
+          <Property Name="CodRaggruppamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodSuperRagg" Type="Int32" />
+          <Property Name="RaggruppamentoGenerico" Type="Boolean" Nullable="false" />
+          <Property Name="Descrizione" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CostoOrario" Type="Double" />
+          <Property Name="CostoOrarioAss" Type="Double" />
+          <Property Name="DataIns" Type="DateTime" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
+          <Property Name="Simbolo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Priorita" Type="Int32" />
+          <Property Name="Colore" Type="Int32" />
+          <Property Name="LastEdit" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="LastEditBy" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ERP_NUM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="InUso" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI" Relationship="CM_INVOICEModel.FK_T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI_T_LISTINO_RAGGRUPPAMENTI" FromRole="T_LISTINO_RAGGRUPPAMENTI" ToRole="T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI" />
+        </EntityType>
+        <EntityType Name="T_LISTINO_SOTTOPROCEDURE">
+          <Key>
+            <PropertyRef Name="CodSottoprocedura" />
+          </Key>
+          <Property Name="CodSottoprocedura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodPrestazione" Type="Int32" />
+          <Property Name="Descrizione" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Immagine" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Mancato" Type="Boolean" />
+          <Property Name="In_uso" Type="Boolean" />
+          <Property Name="Assistente" Type="Boolean" />
+          <Property Name="TipoEseguito" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Frase" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SMS" Type="Boolean" />
+          <Property Name="Generale" Type="Boolean" />
+          <Property Name="Accorpamento" Type="Boolean" />
+          <Property Name="Lunghezza" Type="Boolean" />
+          <Property Name="Diametro" Type="Boolean" />
+          <Property Name="Colore" Type="Boolean" />
+          <Property Name="NumeroProg" Type="Boolean" />
+          <Property Name="Conformita" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="UsaPrezzo" Type="Boolean" />
+          <Property Name="PrezzoGen" Type="Boolean" />
+          <Property Name="PerPiuDenti" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Diretto" Type="Boolean" />
+          <Property Name="Durata" Type="Int32" />
+          <Property Name="PrezzoPrestazioni" Type="Double" />
+          <Property Name="PrezzoVassoio" Type="Double" />
+          <Property Name="PrezzoPrescrizioni" Type="Double" />
+          <Property Name="CodRegionale" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TipoConto" Type="Byte" />
+          <Property Name="CodConto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DataIns" Type="DateTime" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
+          <Property Name="LastEdit" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="LastEditBy" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ERP_NUM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="QuotaVariabile" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ImportoFissoQV" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CodERP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Interna" Type="Boolean" />
+          <Property Name="Categoria" Type="Int32" />
+          <Property Name="Vassoio" Type="Int32" />
+          <Property Name="GestioneMateriale" Type="Boolean" />
+          <Property Name="Medico" Type="Boolean" />
+          <Property Name="PrimaVisita" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApprofondimentoDiagnostici" Type="Boolean" Nullable="false" />
+          <Property Name="UnaSolaOccorrenzaPer" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE" Relationship="CM_INVOICEModel.FK_T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE_T_LISTINO_SOTTOPROCEDURE" FromRole="T_LISTINO_SOTTOPROCEDURE" ToRole="T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE" />
+        </EntityType>
+        <Association Name="FK_T_LISTINO_PROCEDURE_T_LISTINO_PROCEDURE">
+          <End Role="T_LISTINO_PROCEDURE" Type="Self.T_LISTINO_PROCEDURE" Multiplicity="1" />
+          <End Role="T_LISTINO_PROCEDURE1" Type="Self.T_LISTINO_PROCEDURE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="T_LISTINO_PROCEDURE">
+              <PropertyRef Name="CodProcedura" />
+            </Principal>
+            <Dependent Role="T_LISTINO_PROCEDURE1">
+              <PropertyRef Name="CodProcedura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CM_INVOICEEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_CARTELLA_ORTODONTICA_DATI_CLINICI" EntityType="Self.T_CARTELLA_ORTODONTICA_DATI_CLINICI" />
+          <EntitySet Name="T_LISTINO_PROCEDURE" EntityType="Self.T_LISTINO_PROCEDURE" />
+          <EntitySet Name="T_LISTINO_RAGGRUPPAMENTI" EntityType="Self.T_LISTINO_RAGGRUPPAMENTI" />
+          <EntitySet Name="T_LISTINO_SOTTOPROCEDURE" EntityType="Self.T_LISTINO_SOTTOPROCEDURE" />
+          <AssociationSet Name="FK_T_LISTINO_PROCEDURE_T_LISTINO_PROCEDURE" Association="Self.FK_T_LISTINO_PROCEDURE_T_LISTINO_PROCEDURE">
+            <End Role="T_LISTINO_PROCEDURE" EntitySet="T_LISTINO_PROCEDURE" />
+            <End Role="T_LISTINO_PROCEDURE1" EntitySet="T_LISTINO_PROCEDURE" />
+          </AssociationSet>
+          <EntitySet Name="T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI" EntityType="CM_INVOICEModel.T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI" />
+          <AssociationSet Name="FK_T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI_T_LISTINO_RAGGRUPPAMENTI" Association="CM_INVOICEModel.FK_T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI_T_LISTINO_RAGGRUPPAMENTI">
+            <End Role="T_LISTINO_RAGGRUPPAMENTI" EntitySet="T_LISTINO_RAGGRUPPAMENTI" />
+            <End Role="T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI" EntitySet="T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI" />
+          </AssociationSet>
+          <EntitySet Name="T_LISTINO_PROCEDURE_SOTTOPROCEDURE" EntityType="CM_INVOICEModel.T_LISTINO_PROCEDURE_SOTTOPROCEDURE" />
+          <EntitySet Name="T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE" EntityType="CM_INVOICEModel.T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE" />
+          <EntitySet Name="T_TRATTAMENTI" EntityType="CM_INVOICEModel.T_TRATTAMENTI" />
+          <EntitySet Name="T_ANAGRAFICA_PAZIENTI" EntityType="CM_INVOICEModel.T_ANAGRAFICA_PAZIENTI" />
+          <AssociationSet Name="FK_T_ANAGRAFICA_PAZIENTI_OrigineCodPaziente" Association="CM_INVOICEModel.FK_T_ANAGRAFICA_PAZIENTI_OrigineCodPaziente">
+            <End Role="T_ANAGRAFICA_PAZIENTI" EntitySet="T_ANAGRAFICA_PAZIENTI" />
+            <End Role="T_ANAGRAFICA_PAZIENTI1" EntitySet="T_ANAGRAFICA_PAZIENTI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_ANAGRAFICA_PAZIENTI_T_ANAGRAFICA_PAZIENTI" Association="CM_INVOICEModel.FK_T_ANAGRAFICA_PAZIENTI_T_ANAGRAFICA_PAZIENTI">
+            <End Role="T_ANAGRAFICA_PAZIENTI" EntitySet="T_ANAGRAFICA_PAZIENTI" />
+            <End Role="T_ANAGRAFICA_PAZIENTI1" EntitySet="T_ANAGRAFICA_PAZIENTI" />
+          </AssociationSet>
+          <EntitySet Name="ANM_AllergieFarmacologiche" EntityType="CM_INVOICEModel.ANM_AllergieFarmacologiche" />
+          <EntitySet Name="ANM_FarmaciAssunti" EntityType="CM_INVOICEModel.ANM_FarmaciAssunti" />
+          <EntitySet Name="ANM_Patologie" EntityType="CM_INVOICEModel.ANM_Patologie" />
+          <EntitySet Name="T_TRATTAMENTI_NOTE" EntityType="CM_INVOICEModel.T_TRATTAMENTI_NOTE" />
+          <EntitySet Name="T_CARTELLA_ORTODONTICA_PROCEDURE" EntityType="CM_INVOICEModel.T_CARTELLA_ORTODONTICA_PROCEDURE" />
+          <AssociationSet Name="FK_T_CARTELLA_ORTODONTICA_PROCEDURE_T_LISTINO_PROCEDURE" Association="CM_INVOICEModel.FK_T_CARTELLA_ORTODONTICA_PROCEDURE_T_LISTINO_PROCEDURE">
+            <End Role="T_LISTINO_PROCEDURE" EntitySet="T_LISTINO_PROCEDURE" />
+            <End Role="T_CARTELLA_ORTODONTICA_PROCEDURE" EntitySet="T_CARTELLA_ORTODONTICA_PROCEDURE" />
+          </AssociationSet>
+          <EntitySet Name="T_AGENDA_APPUNTAMENTI" EntityType="CM_INVOICEModel.T_AGENDA_APPUNTAMENTI" />
+          <AssociationSet Name="FK_T_AGENDA_APPUNTAMENTI_T_ANAGRAFICA_PAZIENTI" Association="CM_INVOICEModel.FK_T_AGENDA_APPUNTAMENTI_T_ANAGRAFICA_PAZIENTI">
+            <End Role="T_ANAGRAFICA_PAZIENTI" EntitySet="T_ANAGRAFICA_PAZIENTI" />
+            <End Role="T_AGENDA_APPUNTAMENTI" EntitySet="T_AGENDA_APPUNTAMENTI" />
+          </AssociationSet>
+          <EntitySet Name="T_PRESCRIZIONE" EntityType="CM_INVOICEModel.T_PRESCRIZIONE" />
+          <EntitySet Name="T_ANAGRAFICA_FORNITORI" EntityType="CM_INVOICEModel.T_ANAGRAFICA_FORNITORI" />
+          <EntitySet Name="T_CARTELLA_ORTODONTICA_REFERTAZIONE" EntityType="CM_INVOICEModel.T_CARTELLA_ORTODONTICA_REFERTAZIONE" />
+          <AssociationSet Name="FK_T_CARTELLA_ORTODONTICA_REFERTAZIONE_T_CARTELLA_ORTODONTICA_DATI_CLINICI" Association="CM_INVOICEModel.FK_T_CARTELLA_ORTODONTICA_REFERTAZIONE_T_CARTELLA_ORTODONTICA_DATI_CLINICI">
+            <End Role="T_CARTELLA_ORTODONTICA_DATI_CLINICI" EntitySet="T_CARTELLA_ORTODONTICA_DATI_CLINICI" />
+            <End Role="T_CARTELLA_ORTODONTICA_REFERTAZIONE" EntitySet="T_CARTELLA_ORTODONTICA_REFERTAZIONE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_CARTELLA_ORTODONTICA_REFERTAZIONE_T_TRATTAMENTI" Association="CM_INVOICEModel.FK_T_CARTELLA_ORTODONTICA_REFERTAZIONE_T_TRATTAMENTI">
+            <End Role="T_TRATTAMENTI" EntitySet="T_TRATTAMENTI" />
+            <End Role="T_CARTELLA_ORTODONTICA_REFERTAZIONE" EntitySet="T_CARTELLA_ORTODONTICA_REFERTAZIONE" />
+          </AssociationSet>
+          <EntitySet Name="T_STUDI" EntityType="CM_INVOICEModel.T_STUDI" />
+          <AssociationSet Name="FK_T_ANAGRAFICA_PAZIENTI_Studio" Association="CM_INVOICEModel.FK_T_ANAGRAFICA_PAZIENTI_Studio">
+            <End Role="T_STUDI" EntitySet="T_STUDI" />
+            <End Role="T_ANAGRAFICA_PAZIENTI" EntitySet="T_ANAGRAFICA_PAZIENTI" />
+          </AssociationSet>
+          <EntitySet Name="T_SETUP" EntityType="CM_INVOICEModel.T_SETUP" />
+          <EntitySet Name="T_PRESC_DETTAGLIO" EntityType="CM_INVOICEModel.T_PRESC_DETTAGLIO" />
+          <AssociationSet Name="FK_T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE_T_LISTINO_SOTTOPROCEDURE" Association="CM_INVOICEModel.FK_T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE_T_LISTINO_SOTTOPROCEDURE">
+            <End Role="T_LISTINO_SOTTOPROCEDURE" EntitySet="T_LISTINO_SOTTOPROCEDURE" />
+            <End Role="T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE" EntitySet="T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_PRESC_DETTAGLIO_T_PRESCRIZIONE" Association="CM_INVOICEModel.FK_T_PRESC_DETTAGLIO_T_PRESCRIZIONE">
+            <End Role="T_PRESCRIZIONE" EntitySet="T_PRESCRIZIONE" />
+            <End Role="T_PRESC_DETTAGLIO" EntitySet="T_PRESC_DETTAGLIO" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI">
+          <Key>
+            <PropertyRef Name="CodRaggruppamento" />
+          </Key>
+          <Property Name="CodRaggruppamento" Type="Int32" Nullable="false" />
+          <Property Name="In_Uso" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="T_LISTINO_RAGGRUPPAMENTI" Relationship="CM_INVOICEModel.FK_T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI_T_LISTINO_RAGGRUPPAMENTI" FromRole="T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI" ToRole="T_LISTINO_RAGGRUPPAMENTI" />
+        </EntityType>
+        <Association Name="FK_T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI_T_LISTINO_RAGGRUPPAMENTI">
+          <End Type="CM_INVOICEModel.T_LISTINO_RAGGRUPPAMENTI" Role="T_LISTINO_RAGGRUPPAMENTI" Multiplicity="1" />
+          <End Type="CM_INVOICEModel.T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI" Role="T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="T_LISTINO_RAGGRUPPAMENTI">
+              <PropertyRef Name="CodRaggruppamento" />
+            </Principal>
+            <Dependent Role="T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI">
+              <PropertyRef Name="CodRaggruppamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="T_LISTINO_PROCEDURE_SOTTOPROCEDURE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodProcedura" Type="Int32" Nullable="false" />
+          <Property Name="CodSottoprocedura" Type="Int32" Nullable="false" />
+          <Property Name="Durata" Type="Int32" />
+          <Property Name="NumeroAppuntamento" Type="Int32" />
+          <Property Name="Progressione" Type="Int32" />
+          <Property Name="PiuDenti" Type="Boolean" />
+          <Property Name="SingPiu" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="LastEdit" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="LastEditBy" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE">
+          <Key>
+            <PropertyRef Name="CodSottoprocedura" />
+          </Key>
+          <Property Name="CodSottoprocedura" Type="Int32" Nullable="false" />
+          <Property Name="In_Uso" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="T_LISTINO_SOTTOPROCEDURE" Relationship="CM_INVOICEModel.FK_T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE_T_LISTINO_SOTTOPROCEDURE" FromRole="T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE" ToRole="T_LISTINO_SOTTOPROCEDURE" />
+        </EntityType>
+        <EntityType Name="T_TRATTAMENTI">
+          <Key>
+            <PropertyRef Name="NTrattamento" />
+          </Key>
+          <Property Name="NTrattamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descrizione" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CodPaziente" Type="Int32" Nullable="false" />
+          <Property Name="NumPianoDiCura" Type="Int32" Nullable="false" />
+          <Property Name="NPreventivo" Type="Int32" />
+          <Property Name="TotalePreventivo" Type="Double" />
+          <Property Name="CodListino" Type="Int32" />
+          <Property Name="CodConvenzione" Type="Int32" />
+          <Property Name="CodSuperRaggruppamento" Type="Int32" />
+          <Property Name="CodRaggruppamento" Type="Int32" />
+          <Property Name="CodProceduraPadre" Type="Int32" />
+          <Property Name="CodProcedura" Type="Int32" />
+          <Property Name="CodProceduraSottoproceduraId" Type="Int32" />
+          <Property Name="CodSottoprocedura" Type="Int32" />
+          <Property Name="CodMicroprocedura" Type="Int32" />
+          <Property Name="CodiceStato" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="CodMedico" Type="Int32" />
+          <Property Name="CodPadre" Type="Int32" />
+          <Property Name="Dente_1" Type="Int32" />
+          <Property Name="Dente_2" Type="Int32" />
+          <Property Name="Ndenti" Type="Int32" />
+          <Property Name="Prezzo" Type="Double" />
+          <Property Name="Incassato" Type="Double" />
+          <Property Name="DataPreventivo" Type="DateTime" Precision="3" />
+          <Property Name="Nota" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="DataEsecuzione" Type="DateTime" Precision="3" />
+          <Property Name="NumeroAppuntamento" Type="Int32" />
+          <Property Name="Progressione" Type="Int32" />
+          <Property Name="ProgressioneProcedura" Type="Int32" />
+          <Property Name="AppCam" Type="Boolean" />
+          <Property Name="Accettato" Type="Int32" />
+          <Property Name="Pagato" Type="Boolean" Nullable="false" />
+          <Property Name="Fatturato" Type="Boolean" />
+          <Property Name="CodLaboratorio" Type="Int32" />
+          <Property Name="Tipo" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Lunghezza" Type="Double" />
+          <Property Name="Diametro" Type="Double" />
+          <Property Name="Concordato" Type="Boolean" Nullable="false" />
+          <Property Name="CodIncasso" Type="Int32" />
+          <Property Name="PrezzoListinoTeorico" Type="Double" />
+          <Property Name="PrezzoListinoCommerciale" Type="Double" />
+          <Property Name="PrezzoConc" Type="Double" />
+          <Property Name="PrezzoDaConcordare" Type="Double" />
+          <Property Name="PrezzoPaziente" Type="Double" />
+          <Property Name="PrezzoEnte" Type="Double" />
+          <Property Name="Generico" Type="Boolean" Nullable="false" />
+          <Property Name="Cancellato" Type="Boolean" Nullable="false" />
+          <Property Name="ConteggiaConcordato" Type="Boolean" />
+          <Property Name="Modificato" Type="Boolean" Nullable="false" />
+          <Property Name="InseritoDa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UltimaModifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DataIns" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
+          <Property Name="LastEdit" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="LastEditBy" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NTrattamento_Master" Type="Int32" />
+          <Property Name="CodImportazione" Type="Int32" />
+          <Property Name="ERP_NUM_PDC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ERP_NUM_PDC_ROW" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="T_CARTELLA_ORTODONTICA_REFERTAZIONE" Relationship="CM_INVOICEModel.FK_T_CARTELLA_ORTODONTICA_REFERTAZIONE_T_TRATTAMENTI" FromRole="T_TRATTAMENTI" ToRole="T_CARTELLA_ORTODONTICA_REFERTAZIONE" />
+          <Property Name="ImportoSconto" Type="Double" />
+        </EntityType>
+        <EntityType Name="T_ANAGRAFICA_PAZIENTI">
+          <Key>
+            <PropertyRef Name="CodPaziente" />
+          </Key>
+          <Property Name="CodPaziente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodTitolo" Type="Int32" />
+          <Property Name="Titolo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cognome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sesso" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Professione" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Nota" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Salute" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Indirizzo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CAP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Citta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Provincia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CodNazione" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="TelCasa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TelUff" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TelCell" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Natoil" Type="DateTime" Precision="3" />
+          <Property Name="CAPNasc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CittaNasc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinciaNasc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CodNazioneNasc" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CodFisc" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="PartitaIVA" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Swift" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="IBAN" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NListino" Type="Int32" />
+          <Property Name="Affidabilita" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CodInviato" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="InviatoDa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CodPazfatt" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Orari" Type="String" MaxLength="224" FixedLength="true" Unicode="false" />
+          <Property Name="Resto" Type="Double" />
+          <Property Name="PosizioneTicket" Type="Int32" />
+          <Property Name="MedCurante" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Dentista" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Studio" Type="Int32" />
+          <Property Name="Osservazioni" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="MisBande" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Terapia" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ERP_NUM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Permessi" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Infetto" Type="Boolean" />
+          <Property Name="Allergico" Type="Boolean" />
+          <Property Name="NoTesseraSanitaria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CodiceConvenzione" Type="Int32" />
+          <Property Name="Convenzione" Type="Boolean" Nullable="false" />
+          <Property Name="NomeCartella" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="InseritoDa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UltimaModifica" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DataIns" Type="DateTime" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
+          <Property Name="LastEdit" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="LastEditBy" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CodImportazione" Type="Int32" />
+          <Property Name="FatturareANome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FatturareACognome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FatturareAIndirizzo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FatturareACAP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FatturareACitta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FatturareAProvincia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FatturareACodNazione" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="FatturareAPartitaIVA" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="CodMedicoRiferimento" Type="Int32" />
+          <Property Name="OrigineCliente" Type="Byte" Nullable="false" />
+          <Property Name="OrigineCodPaziente" Type="Int32" />
+          <Property Name="OrigineCodMedico" Type="Int32" />
+          <Property Name="OrigineMedicoEsterno" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CodiceEsenzione" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IscrittoAllaNewsletter" Type="Boolean" Nullable="false" />
+          <Property Name="CodCapoFamiglia" Type="Int32" />
+          <NavigationProperty Name="T_ANAGRAFICA_PAZIENTI1" Relationship="CM_INVOICEModel.FK_T_ANAGRAFICA_PAZIENTI_OrigineCodPaziente" FromRole="T_ANAGRAFICA_PAZIENTI" ToRole="T_ANAGRAFICA_PAZIENTI1" />
+          <NavigationProperty Name="T_ANAGRAFICA_PAZIENTI2" Relationship="CM_INVOICEModel.FK_T_ANAGRAFICA_PAZIENTI_OrigineCodPaziente" FromRole="T_ANAGRAFICA_PAZIENTI1" ToRole="T_ANAGRAFICA_PAZIENTI" />
+          <NavigationProperty Name="T_ANAGRAFICA_PAZIENTI11" Relationship="CM_INVOICEModel.FK_T_ANAGRAFICA_PAZIENTI_T_ANAGRAFICA_PAZIENTI" FromRole="T_ANAGRAFICA_PAZIENTI" ToRole="T_ANAGRAFICA_PAZIENTI1" />
+          <NavigationProperty Name="T_ANAGRAFICA_PAZIENTI3" Relationship="CM_INVOICEModel.FK_T_ANAGRAFICA_PAZIENTI_T_ANAGRAFICA_PAZIENTI" FromRole="T_ANAGRAFICA_PAZIENTI1" ToRole="T_ANAGRAFICA_PAZIENTI" />
+          <NavigationProperty Name="T_AGENDA_APPUNTAMENTI" Relationship="CM_INVOICEModel.FK_T_AGENDA_APPUNTAMENTI_T_ANAGRAFICA_PAZIENTI" FromRole="T_ANAGRAFICA_PAZIENTI" ToRole="T_AGENDA_APPUNTAMENTI" />
+          <NavigationProperty Name="T_STUDI" Relationship="CM_INVOICEModel.FK_T_ANAGRAFICA_PAZIENTI_Studio" FromRole="T_ANAGRAFICA_PAZIENTI" ToRole="T_STUDI" />
+        </EntityType>
+        <Association Name="FK_T_ANAGRAFICA_PAZIENTI_OrigineCodPaziente">
+          <End Type="CM_INVOICEModel.T_ANAGRAFICA_PAZIENTI" Role="T_ANAGRAFICA_PAZIENTI" Multiplicity="0..1" />
+          <End Type="CM_INVOICEModel.T_ANAGRAFICA_PAZIENTI" Role="T_ANAGRAFICA_PAZIENTI1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ANAGRAFICA_PAZIENTI">
+              <PropertyRef Name="CodPaziente" />
+            </Principal>
+            <Dependent Role="T_ANAGRAFICA_PAZIENTI1">
+              <PropertyRef Name="OrigineCodPaziente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_ANAGRAFICA_PAZIENTI_T_ANAGRAFICA_PAZIENTI">
+          <End Type="CM_INVOICEModel.T_ANAGRAFICA_PAZIENTI" Role="T_ANAGRAFICA_PAZIENTI" Multiplicity="1" />
+          <End Type="CM_INVOICEModel.T_ANAGRAFICA_PAZIENTI" Role="T_ANAGRAFICA_PAZIENTI1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="T_ANAGRAFICA_PAZIENTI">
+              <PropertyRef Name="CodPaziente" />
+            </Principal>
+            <Dependent Role="T_ANAGRAFICA_PAZIENTI1">
+              <PropertyRef Name="CodPaziente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ANM_AllergieFarmacologiche">
+          <Key>
+            <PropertyRef Name="CodPaziente" />
+          </Key>
+          <Property Name="CodPaziente" Type="Int32" Nullable="false" />
+          <Property Name="Farmaco" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ANM_FarmaciAssunti">
+          <Key>
+            <PropertyRef Name="CodPaziente" />
+          </Key>
+          <Property Name="CodPaziente" Type="Int32" Nullable="false" />
+          <Property Name="Farmaco" Type="String" MaxLength="451" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ANM_Patologie">
+          <Key>
+            <PropertyRef Name="CodPaziente" />
+            <PropertyRef Name="DescrizionePatologia" />
+            <PropertyRef Name="CodPatologia" />
+          </Key>
+          <Property Name="CodPaziente" Type="Int32" Nullable="false" />
+          <Property Name="DescrizionePatologia" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CodPatologia" Type="Int32" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_TRATTAMENTI_NOTE">
+          <Key>
+            <PropertyRef Name="Codnota" />
+          </Key>
+          <Property Name="Codnota" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codpaziente" Type="Int32" Nullable="false" />
+          <Property Name="Eseguito" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Daeseguire" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="OsservazioniGenerali" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="DataIns" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataMod" Type="DateTime" Precision="3" />
+          <Property Name="InseritoDa" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="UltimaModifica" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="InseritoDaCodMedico" Type="Int32" />
+          <Property Name="NumPianoDiCura" Type="Int32" Nullable="false" />
+          <Property Name="NTrattamento" Type="Int32" />
+        </EntityType>
+        <EntityType Name="T_CARTELLA_ORTODONTICA_PROCEDURE">
+          <Key>
+            <PropertyRef Name="CodProcedura" />
+          </Key>
+          <Property Name="CodProcedura" Type="Int32" Nullable="false" />
+          <Property Name="In_Uso" Type="Boolean" Nullable="false" />
+          <Property Name="InizioNuovaTerapia" Type="Boolean" Nullable="false" />
+          <Property Name="Diagnostico" Type="Boolean" Nullable="false" />
+          <Property Name="Controllo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="T_LISTINO_PROCEDURE" Relationship="CM_INVOICEModel.FK_T_CARTELLA_ORTODONTICA_PROCEDURE_T_LISTINO_PROCEDURE" FromRole="T_CARTELLA_ORTODONTICA_PROCEDURE" ToRole="T_LISTINO_PROCEDURE" />
+        </EntityType>
+        <Association Name="FK_T_CARTELLA_ORTODONTICA_PROCEDURE_T_LISTINO_PROCEDURE">
+          <End Type="CM_INVOICEModel.T_LISTINO_PROCEDURE" Role="T_LISTINO_PROCEDURE" Multiplicity="1" />
+          <End Type="CM_INVOICEModel.T_CARTELLA_ORTODONTICA_PROCEDURE" Role="T_CARTELLA_ORTODONTICA_PROCEDURE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="T_LISTINO_PROCEDURE">
+              <PropertyRef Name="CodProcedura" />
+            </Principal>
+            <Dependent Role="T_CARTELLA_ORTODONTICA_PROCEDURE">
+              <PropertyRef Name="CodProcedura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="T_AGENDA_APPUNTAMENTI">
+          <Key>
+            <PropertyRef Name="CodAppuntamento" />
+          </Key>
+          <Property Name="CodAppuntamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodPaziente" Type="Int32" Nullable="false" />
+          <Property Name="CodMedico" Type="Int32" Nullable="false" />
+          <Property Name="CodEquipe" Type="Int32" />
+          <Property Name="CodPoltrona" Type="Int32" Nullable="false" />
+          <Property Name="NTrattamento" Type="Int32" />
+          <Property Name="DataAppuntamento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DalleOre" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AlleOre" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Note" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Stato" Type="Int32" />
+          <Property Name="TipoApp" Type="Int32" />
+          <Property Name="DataIns" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InseritoDa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UltimaModifica" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SMS" Type="Boolean" />
+          <Property Name="Spostato" Type="Int32" />
+          <Property Name="Completato" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CodImpegno" Type="Int32" />
+          <Property Name="DataUltimaModifica" Type="DateTime" Precision="3" />
+          <Property Name="LastEdit" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="LastEditBy" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CodAppuntamento_Master" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CodImportazione" Type="Int32" />
+          <Property Name="ERP_NUM_CODAPPUNTAMENTO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CodPrenotazione" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CodModuloPagamento" Type="Int32" />
+          <NavigationProperty Name="T_ANAGRAFICA_PAZIENTI" Relationship="CM_INVOICEModel.FK_T_AGENDA_APPUNTAMENTI_T_ANAGRAFICA_PAZIENTI" FromRole="T_AGENDA_APPUNTAMENTI" ToRole="T_ANAGRAFICA_PAZIENTI" />
+        </EntityType>
+        <Association Name="FK_T_AGENDA_APPUNTAMENTI_T_ANAGRAFICA_PAZIENTI">
+          <End Type="CM_INVOICEModel.T_ANAGRAFICA_PAZIENTI" Role="T_ANAGRAFICA_PAZIENTI" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CM_INVOICEModel.T_AGENDA_APPUNTAMENTI" Role="T_AGENDA_APPUNTAMENTI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ANAGRAFICA_PAZIENTI">
+              <PropertyRef Name="CodPaziente" />
+            </Principal>
+            <Dependent Role="T_AGENDA_APPUNTAMENTI">
+              <PropertyRef Name="CodPaziente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="T_PRESCRIZIONE">
+          <Key>
+            <PropertyRef Name="CodPrescrizione" />
+          </Key>
+          <Property Name="CodPrescrizione" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Data" Type="DateTime" Precision="3" />
+          <Property Name="CodicePaziente" Type="Int32" />
+          <Property Name="Numero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CodiceLaboratorio" Type="Int32" />
+          <Property Name="NumeroPiano" Type="Int32" Nullable="false" />
+          <Property Name="CodiceMedico" Type="Int32" />
+          <Property Name="Consegna" Type="DateTime" Precision="3" />
+          <Property Name="ConsegnaOre" Type="DateTime" Precision="3" />
+          <Property Name="ColoreDenti" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Allergie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Intolleranze" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Problematiche" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Handicap" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ArcoFacciale" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RegOcclusali" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Impronte" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Rilevate" Type="DateTime" Precision="3" />
+          <Property Name="Disinfettate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Imballaggio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Prezzo" Type="Double" />
+          <Property Name="Appunti" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Firma" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NotePers" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="NumOrdine" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Shipped" Type="Boolean" />
+          <Property Name="InseritoDa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UltimaModifica" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="LastEdit" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="LastEditBy" Type="Int32" />
+          <Property Name="CodImportazione" Type="Int32" />
+          <NavigationProperty Name="T_PRESC_DETTAGLIO" Relationship="CM_INVOICEModel.FK_T_PRESC_DETTAGLIO_T_PRESCRIZIONE" FromRole="T_PRESCRIZIONE" ToRole="T_PRESC_DETTAGLIO" />
+        </EntityType>
+        <EntityType Name="T_ANAGRAFICA_FORNITORI">
+          <Key>
+            <PropertyRef Name="CodFornitore" />
+          </Key>
+          <Property Name="CodFornitore" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cognome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RagioneSociale" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Indirizzo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Citta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nazione" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cap" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Comune" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PartitaIva" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CodiceFiscale" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IntestazioneFatt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NIMS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TelefonoCasa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TelefonoUfficio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TelefonoCell" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Odontotecnico" Type="Boolean" Nullable="false" />
+          <Property Name="ERP_NUM" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="LastEdit" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="LastEditBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="T_CARTELLA_ORTODONTICA_REFERTAZIONE">
+          <Key>
+            <PropertyRef Name="NTrattamento" />
+            <PropertyRef Name="CodDato" />
+          </Key>
+          <Property Name="NTrattamento" Type="Int32" Nullable="false" />
+          <Property Name="CodDato" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Valore" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Osservazioni" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_CARTELLA_ORTODONTICA_DATI_CLINICI" Relationship="CM_INVOICEModel.FK_T_CARTELLA_ORTODONTICA_REFERTAZIONE_T_CARTELLA_ORTODONTICA_DATI_CLINICI" FromRole="T_CARTELLA_ORTODONTICA_REFERTAZIONE" ToRole="T_CARTELLA_ORTODONTICA_DATI_CLINICI" />
+          <NavigationProperty Name="T_TRATTAMENTI" Relationship="CM_INVOICEModel.FK_T_CARTELLA_ORTODONTICA_REFERTAZIONE_T_TRATTAMENTI" FromRole="T_CARTELLA_ORTODONTICA_REFERTAZIONE" ToRole="T_TRATTAMENTI" />
+        </EntityType>
+        <Association Name="FK_T_CARTELLA_ORTODONTICA_REFERTAZIONE_T_CARTELLA_ORTODONTICA_DATI_CLINICI">
+          <End Type="CM_INVOICEModel.T_CARTELLA_ORTODONTICA_DATI_CLINICI" Role="T_CARTELLA_ORTODONTICA_DATI_CLINICI" Multiplicity="1" />
+          <End Type="CM_INVOICEModel.T_CARTELLA_ORTODONTICA_REFERTAZIONE" Role="T_CARTELLA_ORTODONTICA_REFERTAZIONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_CARTELLA_ORTODONTICA_DATI_CLINICI">
+              <PropertyRef Name="CodDato" />
+            </Principal>
+            <Dependent Role="T_CARTELLA_ORTODONTICA_REFERTAZIONE">
+              <PropertyRef Name="CodDato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_CARTELLA_ORTODONTICA_REFERTAZIONE_T_TRATTAMENTI">
+          <End Type="CM_INVOICEModel.T_TRATTAMENTI" Role="T_TRATTAMENTI" Multiplicity="1" />
+          <End Type="CM_INVOICEModel.T_CARTELLA_ORTODONTICA_REFERTAZIONE" Role="T_CARTELLA_ORTODONTICA_REFERTAZIONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_TRATTAMENTI">
+              <PropertyRef Name="NTrattamento" />
+            </Principal>
+            <Dependent Role="T_CARTELLA_ORTODONTICA_REFERTAZIONE">
+              <PropertyRef Name="NTrattamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="T_STUDI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descrizione" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LastEdit" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="LastEditBy" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CartellaImmagini" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DirettoreSanitario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IndirizzoStruttura" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="NomeStruttura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Colore" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="T_ANAGRAFICA_PAZIENTI" Relationship="CM_INVOICEModel.FK_T_ANAGRAFICA_PAZIENTI_Studio" FromRole="T_STUDI" ToRole="T_ANAGRAFICA_PAZIENTI" />
+        </EntityType>
+        <Association Name="FK_T_ANAGRAFICA_PAZIENTI_Studio">
+          <End Type="CM_INVOICEModel.T_STUDI" Role="T_STUDI" Multiplicity="0..1" />
+          <End Type="CM_INVOICEModel.T_ANAGRAFICA_PAZIENTI" Role="T_ANAGRAFICA_PAZIENTI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_STUDI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="T_ANAGRAFICA_PAZIENTI">
+              <PropertyRef Name="Studio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="T_SETUP">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Valore" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Descrizione" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Editable" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_PRESC_DETTAGLIO">
+          <Key>
+            <PropertyRef Name="Codice" />
+          </Key>
+          <Property Name="Codice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Numero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TipoProtesi" Type="Int32" />
+          <Property Name="PrezzoSingolo" Type="Double" />
+          <Property Name="Quantita" Type="Int32" />
+          <Property Name="Num_Trat" Type="Int32" />
+          <Property Name="CodPrescrizione" Type="Int32" />
+          <Property Name="ColoreDenti" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CodMedico" Type="Int32" />
+          <Property Name="NumCarrello" Type="Int32" />
+          <Property Name="CodiceCapacitaProduttiva" Type="Int32" />
+          <Property Name="CodOdontotecnico" Type="Int32" />
+          <Property Name="DataConsegna" Type="DateTime" Precision="3" />
+          <Property Name="InseritoDa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UltimaModifica" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="LastEdit" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="LastEditBy" Type="Int32" />
+          <Property Name="CodImportazione" Type="Int32" />
+          <Property Name="ControlloQualita" Type="Boolean" Nullable="false" />
+          <Property Name="Progressione" Type="Int32" />
+          <NavigationProperty Name="T_PRESCRIZIONE" Relationship="CM_INVOICEModel.FK_T_PRESC_DETTAGLIO_T_PRESCRIZIONE" FromRole="T_PRESC_DETTAGLIO" ToRole="T_PRESCRIZIONE" />
+        </EntityType>
+        <Association Name="FK_T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE_T_LISTINO_SOTTOPROCEDURE">
+          <End Type="CM_INVOICEModel.T_LISTINO_SOTTOPROCEDURE" Role="T_LISTINO_SOTTOPROCEDURE" Multiplicity="1" />
+          <End Type="CM_INVOICEModel.T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE" Role="T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="T_LISTINO_SOTTOPROCEDURE">
+              <PropertyRef Name="CodSottoprocedura" />
+            </Principal>
+            <Dependent Role="T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE">
+              <PropertyRef Name="CodSottoprocedura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_PRESC_DETTAGLIO_T_PRESCRIZIONE">
+          <End Type="CM_INVOICEModel.T_PRESCRIZIONE" Role="T_PRESCRIZIONE" Multiplicity="0..1" />
+          <End Type="CM_INVOICEModel.T_PRESC_DETTAGLIO" Role="T_PRESC_DETTAGLIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_PRESCRIZIONE">
+              <PropertyRef Name="CodPrescrizione" />
+            </Principal>
+            <Dependent Role="T_PRESC_DETTAGLIO">
+              <PropertyRef Name="CodPrescrizione" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CM_INVOICEModelStoreContainer" CdmEntityContainer="CM_INVOICEEntities1">
+          <EntitySetMapping Name="T_CARTELLA_ORTODONTICA_DATI_CLINICI">
+            <EntityTypeMapping TypeName="CM_INVOICEModel.T_CARTELLA_ORTODONTICA_DATI_CLINICI">
+              <MappingFragment StoreEntitySet="T_CARTELLA_ORTODONTICA_DATI_CLINICI">
+                <ScalarProperty Name="CodDato" ColumnName="CodDato" />
+                <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
+                <ScalarProperty Name="In_Uso" ColumnName="In_Uso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_LISTINO_PROCEDURE">
+            <EntityTypeMapping TypeName="CM_INVOICEModel.T_LISTINO_PROCEDURE">
+              <MappingFragment StoreEntitySet="T_LISTINO_PROCEDURE">
+                <ScalarProperty Name="CodProcedura" ColumnName="CodProcedura" />
+                <ScalarProperty Name="CodRaggruppamento" ColumnName="CodRaggruppamento" />
+                <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
+                <ScalarProperty Name="Immagine" ColumnName="Immagine" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="ColPreventivato" ColumnName="ColPreventivato" />
+                <ScalarProperty Name="ColEseguito" ColumnName="ColEseguito" />
+                <ScalarProperty Name="In_uso" ColumnName="In_uso" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Durata" ColumnName="Durata" />
+                <ScalarProperty Name="Prezzo" ColumnName="Prezzo" />
+                <ScalarProperty Name="Generale" ColumnName="Generale" />
+                <ScalarProperty Name="PrezzoImposto" ColumnName="PrezzoImposto" />
+                <ScalarProperty Name="CodRegionale" ColumnName="CodRegionale" />
+                <ScalarProperty Name="TipoConto" ColumnName="TipoConto" />
+                <ScalarProperty Name="CodConto" ColumnName="CodConto" />
+                <ScalarProperty Name="DataIns" ColumnName="DataIns" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="LastEdit" ColumnName="LastEdit" />
+                <ScalarProperty Name="LastEditBy" ColumnName="LastEditBy" />
+                <ScalarProperty Name="ERP_NUM" ColumnName="ERP_NUM" />
+                <ScalarProperty Name="QuotaVariabile" ColumnName="QuotaVariabile" />
+                <ScalarProperty Name="ImportoFissoQV" ColumnName="ImportoFissoQV" />
+                <ScalarProperty Name="CodERP" ColumnName="CodERP" />
+                <ScalarProperty Name="Interna" ColumnName="Interna" />
+                <ScalarProperty Name="C__Quota_Variabile" ColumnName="% Quota Variabile" />
+                <ScalarProperty Name="IVA" ColumnName="IVA" />
+                <ScalarProperty Name="Stato_Dente_Dopo_Esecuzione" ColumnName="Stato_Dente_Dopo_Esecuzione" />
+                <ScalarProperty Name="NumeroPianoDeiConti" ColumnName="NumeroPianoDeiConti" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_LISTINO_RAGGRUPPAMENTI">
+            <EntityTypeMapping TypeName="CM_INVOICEModel.T_LISTINO_RAGGRUPPAMENTI">
+              <MappingFragment StoreEntitySet="T_LISTINO_RAGGRUPPAMENTI">
+                <ScalarProperty Name="CodRaggruppamento" ColumnName="CodRaggruppamento" />
+                <ScalarProperty Name="CodSuperRagg" ColumnName="CodSuperRagg" />
+                <ScalarProperty Name="RaggruppamentoGenerico" ColumnName="RaggruppamentoGenerico" />
+                <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
+                <ScalarProperty Name="CostoOrario" ColumnName="CostoOrario" />
+                <ScalarProperty Name="CostoOrarioAss" ColumnName="CostoOrarioAss" />
+                <ScalarProperty Name="DataIns" ColumnName="DataIns" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="Simbolo" ColumnName="Simbolo" />
+                <ScalarProperty Name="Priorita" ColumnName="Priorita" />
+                <ScalarProperty Name="Colore" ColumnName="Colore" />
+                <ScalarProperty Name="LastEdit" ColumnName="LastEdit" />
+                <ScalarProperty Name="LastEditBy" ColumnName="LastEditBy" />
+                <ScalarProperty Name="ERP_NUM" ColumnName="ERP_NUM" />
+                <ScalarProperty Name="InUso" ColumnName="InUso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_LISTINO_SOTTOPROCEDURE">
+            <EntityTypeMapping TypeName="CM_INVOICEModel.T_LISTINO_SOTTOPROCEDURE">
+              <MappingFragment StoreEntitySet="T_LISTINO_SOTTOPROCEDURE">
+                <ScalarProperty Name="CodSottoprocedura" ColumnName="CodSottoprocedura" />
+                <ScalarProperty Name="CodPrestazione" ColumnName="CodPrestazione" />
+                <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
+                <ScalarProperty Name="Immagine" ColumnName="Immagine" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="Mancato" ColumnName="Mancato" />
+                <ScalarProperty Name="In_uso" ColumnName="In_uso" />
+                <ScalarProperty Name="Assistente" ColumnName="Assistente" />
+                <ScalarProperty Name="TipoEseguito" ColumnName="TipoEseguito" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Frase" ColumnName="Frase" />
+                <ScalarProperty Name="SMS" ColumnName="SMS" />
+                <ScalarProperty Name="Generale" ColumnName="Generale" />
+                <ScalarProperty Name="Accorpamento" ColumnName="Accorpamento" />
+                <ScalarProperty Name="Lunghezza" ColumnName="Lunghezza" />
+                <ScalarProperty Name="Diametro" ColumnName="Diametro" />
+                <ScalarProperty Name="Colore" ColumnName="Colore" />
+                <ScalarProperty Name="NumeroProg" ColumnName="NumeroProg" />
+                <ScalarProperty Name="Conformita" ColumnName="Conformita" />
+                <ScalarProperty Name="UsaPrezzo" ColumnName="UsaPrezzo" />
+                <ScalarProperty Name="PrezzoGen" ColumnName="PrezzoGen" />
+                <ScalarProperty Name="PerPiuDenti" ColumnName="PerPiuDenti" />
+                <ScalarProperty Name="Diretto" ColumnName="Diretto" />
+                <ScalarProperty Name="Durata" ColumnName="Durata" />
+                <ScalarProperty Name="PrezzoPrestazioni" ColumnName="PrezzoPrestazioni" />
+                <ScalarProperty Name="PrezzoVassoio" ColumnName="PrezzoVassoio" />
+                <ScalarProperty Name="PrezzoPrescrizioni" ColumnName="PrezzoPrescrizioni" />
+                <ScalarProperty Name="CodRegionale" ColumnName="CodRegionale" />
+                <ScalarProperty Name="TipoConto" ColumnName="TipoConto" />
+                <ScalarProperty Name="CodConto" ColumnName="CodConto" />
+                <ScalarProperty Name="DataIns" ColumnName="DataIns" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="LastEdit" ColumnName="LastEdit" />
+                <ScalarProperty Name="LastEditBy" ColumnName="LastEditBy" />
+                <ScalarProperty Name="ERP_NUM" ColumnName="ERP_NUM" />
+                <ScalarProperty Name="QuotaVariabile" ColumnName="QuotaVariabile" />
+                <ScalarProperty Name="ImportoFissoQV" ColumnName="ImportoFissoQV" />
+                <ScalarProperty Name="CodERP" ColumnName="CodERP" />
+                <ScalarProperty Name="Interna" ColumnName="Interna" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="Vassoio" ColumnName="Vassoio" />
+                <ScalarProperty Name="GestioneMateriale" ColumnName="GestioneMateriale" />
+                <ScalarProperty Name="Medico" ColumnName="Medico" />
+                <ScalarProperty Name="PrimaVisita" ColumnName="PrimaVisita" />
+                <ScalarProperty Name="ApprofondimentoDiagnostici" ColumnName="ApprofondimentoDiagnostici" />
+                <ScalarProperty Name="UnaSolaOccorrenzaPer" ColumnName="UnaSolaOccorrenzaPer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI">
+            <EntityTypeMapping TypeName="CM_INVOICEModel.T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI">
+              <MappingFragment StoreEntitySet="T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI">
+                <ScalarProperty Name="In_Uso" ColumnName="In_Uso" />
+                <ScalarProperty Name="CodRaggruppamento" ColumnName="CodRaggruppamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_LISTINO_PROCEDURE_SOTTOPROCEDURE">
+            <EntityTypeMapping TypeName="CM_INVOICEModel.T_LISTINO_PROCEDURE_SOTTOPROCEDURE">
+              <MappingFragment StoreEntitySet="T_LISTINO_PROCEDURE_SOTTOPROCEDURE">
+                <ScalarProperty Name="LastEditBy" ColumnName="LastEditBy" />
+                <ScalarProperty Name="LastEdit" ColumnName="LastEdit" />
+                <ScalarProperty Name="SingPiu" ColumnName="SingPiu" />
+                <ScalarProperty Name="PiuDenti" ColumnName="PiuDenti" />
+                <ScalarProperty Name="Progressione" ColumnName="Progressione" />
+                <ScalarProperty Name="NumeroAppuntamento" ColumnName="NumeroAppuntamento" />
+                <ScalarProperty Name="Durata" ColumnName="Durata" />
+                <ScalarProperty Name="CodSottoprocedura" ColumnName="CodSottoprocedura" />
+                <ScalarProperty Name="CodProcedura" ColumnName="CodProcedura" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE">
+            <EntityTypeMapping TypeName="CM_INVOICEModel.T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE">
+              <MappingFragment StoreEntitySet="T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE">
+                <ScalarProperty Name="In_Uso" ColumnName="In_Uso" />
+                <ScalarProperty Name="CodSottoprocedura" ColumnName="CodSottoprocedura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_TRATTAMENTI">
+            <EntityTypeMapping TypeName="CM_INVOICEModel.T_TRATTAMENTI">
+              <MappingFragment StoreEntitySet="T_TRATTAMENTI">
+                <ScalarProperty Name="ImportoSconto" ColumnName="ImportoSconto" />
+                <ScalarProperty Name="ERP_NUM_PDC_ROW" ColumnName="ERP_NUM_PDC_ROW" />
+                <ScalarProperty Name="ERP_NUM_PDC" ColumnName="ERP_NUM_PDC" />
+                <ScalarProperty Name="CodImportazione" ColumnName="CodImportazione" />
+                <ScalarProperty Name="NTrattamento_Master" ColumnName="NTrattamento_Master" />
+                <ScalarProperty Name="LastEditBy" ColumnName="LastEditBy" />
+                <ScalarProperty Name="LastEdit" ColumnName="LastEdit" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="DataIns" ColumnName="DataIns" />
+                <ScalarProperty Name="UltimaModifica" ColumnName="UltimaModifica" />
+                <ScalarProperty Name="InseritoDa" ColumnName="InseritoDa" />
+                <ScalarProperty Name="Modificato" ColumnName="Modificato" />
+                <ScalarProperty Name="ConteggiaConcordato" ColumnName="ConteggiaConcordato" />
+                <ScalarProperty Name="Cancellato" ColumnName="Cancellato" />
+                <ScalarProperty Name="Generico" ColumnName="Generico" />
+                <ScalarProperty Name="PrezzoEnte" ColumnName="PrezzoEnte" />
+                <ScalarProperty Name="PrezzoPaziente" ColumnName="PrezzoPaziente" />
+                <ScalarProperty Name="PrezzoDaConcordare" ColumnName="PrezzoDaConcordare" />
+                <ScalarProperty Name="PrezzoConc" ColumnName="PrezzoConc" />
+                <ScalarProperty Name="PrezzoListinoCommerciale" ColumnName="PrezzoListinoCommerciale" />
+                <ScalarProperty Name="PrezzoListinoTeorico" ColumnName="PrezzoListinoTeorico" />
+                <ScalarProperty Name="CodIncasso" ColumnName="CodIncasso" />
+                <ScalarProperty Name="Concordato" ColumnName="Concordato" />
+                <ScalarProperty Name="Diametro" ColumnName="Diametro" />
+                <ScalarProperty Name="Lunghezza" ColumnName="Lunghezza" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="CodLaboratorio" ColumnName="CodLaboratorio" />
+                <ScalarProperty Name="Fatturato" ColumnName="Fatturato" />
+                <ScalarProperty Name="Pagato" ColumnName="Pagato" />
+                <ScalarProperty Name="Accettato" ColumnName="Accettato" />
+                <ScalarProperty Name="AppCam" ColumnName="AppCam" />
+                <ScalarProperty Name="ProgressioneProcedura" ColumnName="ProgressioneProcedura" />
+                <ScalarProperty Name="Progressione" ColumnName="Progressione" />
+                <ScalarProperty Name="NumeroAppuntamento" ColumnName="NumeroAppuntamento" />
+                <ScalarProperty Name="DataEsecuzione" ColumnName="DataEsecuzione" />
+                <ScalarProperty Name="Nota" ColumnName="Nota" />
+                <ScalarProperty Name="DataPreventivo" ColumnName="DataPreventivo" />
+                <ScalarProperty Name="Incassato" ColumnName="Incassato" />
+                <ScalarProperty Name="Prezzo" ColumnName="Prezzo" />
+                <ScalarProperty Name="Ndenti" ColumnName="Ndenti" />
+                <ScalarProperty Name="Dente_2" ColumnName="Dente_2" />
+                <ScalarProperty Name="Dente_1" ColumnName="Dente_1" />
+                <ScalarProperty Name="CodPadre" ColumnName="CodPadre" />
+                <ScalarProperty Name="CodMedico" ColumnName="CodMedico" />
+                <ScalarProperty Name="CodiceStato" ColumnName="CodiceStato" />
+                <ScalarProperty Name="CodMicroprocedura" ColumnName="CodMicroprocedura" />
+                <ScalarProperty Name="CodSottoprocedura" ColumnName="CodSottoprocedura" />
+                <ScalarProperty Name="CodProceduraSottoproceduraId" ColumnName="CodProceduraSottoproceduraId" />
+                <ScalarProperty Name="CodProcedura" ColumnName="CodProcedura" />
+                <ScalarProperty Name="CodProceduraPadre" ColumnName="CodProceduraPadre" />
+                <ScalarProperty Name="CodRaggruppamento" ColumnName="CodRaggruppamento" />
+                <ScalarProperty Name="CodSuperRaggruppamento" ColumnName="CodSuperRaggruppamento" />
+                <ScalarProperty Name="CodConvenzione" ColumnName="CodConvenzione" />
+                <ScalarProperty Name="CodListino" ColumnName="CodListino" />
+                <ScalarProperty Name="TotalePreventivo" ColumnName="TotalePreventivo" />
+                <ScalarProperty Name="NPreventivo" ColumnName="NPreventivo" />
+                <ScalarProperty Name="NumPianoDiCura" ColumnName="NumPianoDiCura" />
+                <ScalarProperty Name="CodPaziente" ColumnName="CodPaziente" />
+                <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
+                <ScalarProperty Name="NTrattamento" ColumnName="NTrattamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_ANAGRAFICA_PAZIENTI">
+            <EntityTypeMapping TypeName="CM_INVOICEModel.T_ANAGRAFICA_PAZIENTI">
+              <MappingFragment StoreEntitySet="T_ANAGRAFICA_PAZIENTI">
+                <ScalarProperty Name="CodCapoFamiglia" ColumnName="CodCapoFamiglia" />
+                <ScalarProperty Name="IscrittoAllaNewsletter" ColumnName="IscrittoAllaNewsletter" />
+                <ScalarProperty Name="CodiceEsenzione" ColumnName="CodiceEsenzione" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="OrigineMedicoEsterno" ColumnName="OrigineMedicoEsterno" />
+                <ScalarProperty Name="OrigineCodMedico" ColumnName="OrigineCodMedico" />
+                <ScalarProperty Name="OrigineCodPaziente" ColumnName="OrigineCodPaziente" />
+                <ScalarProperty Name="OrigineCliente" ColumnName="OrigineCliente" />
+                <ScalarProperty Name="CodMedicoRiferimento" ColumnName="CodMedicoRiferimento" />
+                <ScalarProperty Name="FatturareAPartitaIVA" ColumnName="FatturareAPartitaIVA" />
+                <ScalarProperty Name="FatturareACodNazione" ColumnName="FatturareACodNazione" />
+                <ScalarProperty Name="FatturareAProvincia" ColumnName="FatturareAProvincia" />
+                <ScalarProperty Name="FatturareACitta" ColumnName="FatturareACitta" />
+                <ScalarProperty Name="FatturareACAP" ColumnName="FatturareACAP" />
+                <ScalarProperty Name="FatturareAIndirizzo" ColumnName="FatturareAIndirizzo" />
+                <ScalarProperty Name="FatturareACognome" ColumnName="FatturareACognome" />
+                <ScalarProperty Name="FatturareANome" ColumnName="FatturareANome" />
+                <ScalarProperty Name="CodImportazione" ColumnName="CodImportazione" />
+                <ScalarProperty Name="LastEditBy" ColumnName="LastEditBy" />
+                <ScalarProperty Name="LastEdit" ColumnName="LastEdit" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="DataIns" ColumnName="DataIns" />
+                <ScalarProperty Name="UltimaModifica" ColumnName="UltimaModifica" />
+                <ScalarProperty Name="InseritoDa" ColumnName="InseritoDa" />
+                <ScalarProperty Name="NomeCartella" ColumnName="NomeCartella" />
+                <ScalarProperty Name="Convenzione" ColumnName="Convenzione" />
+                <ScalarProperty Name="CodiceConvenzione" ColumnName="CodiceConvenzione" />
+                <ScalarProperty Name="NoTesseraSanitaria" ColumnName="NoTesseraSanitaria" />
+                <ScalarProperty Name="Allergico" ColumnName="Allergico" />
+                <ScalarProperty Name="Infetto" ColumnName="Infetto" />
+                <ScalarProperty Name="Permessi" ColumnName="Permessi" />
+                <ScalarProperty Name="Password1" ColumnName="Password1" />
+                <ScalarProperty Name="UserName1" ColumnName="UserName1" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ERP_NUM" ColumnName="ERP_NUM" />
+                <ScalarProperty Name="Terapia" ColumnName="Terapia" />
+                <ScalarProperty Name="MisBande" ColumnName="MisBande" />
+                <ScalarProperty Name="Osservazioni" ColumnName="Osservazioni" />
+                <ScalarProperty Name="Studio" ColumnName="Studio" />
+                <ScalarProperty Name="Dentista" ColumnName="Dentista" />
+                <ScalarProperty Name="MedCurante" ColumnName="MedCurante" />
+                <ScalarProperty Name="PosizioneTicket" ColumnName="PosizioneTicket" />
+                <ScalarProperty Name="Resto" ColumnName="Resto" />
+                <ScalarProperty Name="Orari" ColumnName="Orari" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="CodPazfatt" ColumnName="CodPazfatt" />
+                <ScalarProperty Name="InviatoDa" ColumnName="InviatoDa" />
+                <ScalarProperty Name="CodInviato" ColumnName="CodInviato" />
+                <ScalarProperty Name="Affidabilita" ColumnName="Affidabilita" />
+                <ScalarProperty Name="NListino" ColumnName="NListino" />
+                <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+                <ScalarProperty Name="Swift" ColumnName="Swift" />
+                <ScalarProperty Name="PartitaIVA" ColumnName="PartitaIVA" />
+                <ScalarProperty Name="CodFisc" ColumnName="CodFisc" />
+                <ScalarProperty Name="CodNazioneNasc" ColumnName="CodNazioneNasc" />
+                <ScalarProperty Name="ProvinciaNasc" ColumnName="ProvinciaNasc" />
+                <ScalarProperty Name="CittaNasc" ColumnName="CittaNasc" />
+                <ScalarProperty Name="CAPNasc" ColumnName="CAPNasc" />
+                <ScalarProperty Name="Natoil" ColumnName="Natoil" />
+                <ScalarProperty Name="EMail" ColumnName="EMail" />
+                <ScalarProperty Name="TelCell" ColumnName="TelCell" />
+                <ScalarProperty Name="TelUff" ColumnName="TelUff" />
+                <ScalarProperty Name="TelCasa" ColumnName="TelCasa" />
+                <ScalarProperty Name="CodNazione" ColumnName="CodNazione" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+                <ScalarProperty Name="Citta" ColumnName="Citta" />
+                <ScalarProperty Name="CAP" ColumnName="CAP" />
+                <ScalarProperty Name="Indirizzo" ColumnName="Indirizzo" />
+                <ScalarProperty Name="Salute" ColumnName="Salute" />
+                <ScalarProperty Name="Nota" ColumnName="Nota" />
+                <ScalarProperty Name="Professione" ColumnName="Professione" />
+                <ScalarProperty Name="Sesso" ColumnName="Sesso" />
+                <ScalarProperty Name="Cognome" ColumnName="Cognome" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Titolo" ColumnName="Titolo" />
+                <ScalarProperty Name="CodTitolo" ColumnName="CodTitolo" />
+                <ScalarProperty Name="CodPaziente" ColumnName="CodPaziente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ANM_AllergieFarmacologiche">
+            <EntityTypeMapping TypeName="CM_INVOICEModel.ANM_AllergieFarmacologiche">
+              <MappingFragment StoreEntitySet="ANM_AllergieFarmacologiche">
+                <ScalarProperty Name="Farmaco" ColumnName="Farmaco" />
+                <ScalarProperty Name="CodPaziente" ColumnName="CodPaziente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ANM_FarmaciAssunti">
+            <EntityTypeMapping TypeName="CM_INVOICEModel.ANM_FarmaciAssunti">
+              <MappingFragment StoreEntitySet="ANM_FarmaciAssunti">
+                <ScalarProperty Name="Farmaco" ColumnName="Farmaco" />
+                <ScalarProperty Name="CodPaziente" ColumnName="CodPaziente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ANM_Patologie">
+            <EntityTypeMapping TypeName="CM_INVOICEModel.ANM_Patologie">
+              <MappingFragment StoreEntitySet="ANM_Patologie">
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="CodPatologia" ColumnName="CodPatologia" />
+                <ScalarProperty Name="DescrizionePatologia" ColumnName="DescrizionePatologia" />
+                <ScalarProperty Name="CodPaziente" ColumnName="CodPaziente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_TRATTAMENTI_NOTE">
+            <EntityTypeMapping TypeName="CM_INVOICEModel.T_TRATTAMENTI_NOTE">
+              <MappingFragment StoreEntitySet="T_TRATTAMENTI_NOTE">
+                <ScalarProperty Name="NTrattamento" ColumnName="NTrattamento" />
+                <ScalarProperty Name="NumPianoDiCura" ColumnName="NumPianoDiCura" />
+                <ScalarProperty Name="InseritoDaCodMedico" ColumnName="InseritoDaCodMedico" />
+                <ScalarProperty Name="UltimaModifica" ColumnName="UltimaModifica" />
+                <ScalarProperty Name="InseritoDa" ColumnName="InseritoDa" />
+                <ScalarProperty Name="DataMod" ColumnName="DataMod" />
+                <ScalarProperty Name="DataIns" ColumnName="DataIns" />
+                <ScalarProperty Name="OsservazioniGenerali" ColumnName="OsservazioniGenerali" />
+                <ScalarProperty Name="Daeseguire" ColumnName="Daeseguire" />
+                <ScalarProperty Name="Eseguito" ColumnName="Eseguito" />
+                <ScalarProperty Name="Codpaziente" ColumnName="Codpaziente" />
+                <ScalarProperty Name="Codnota" ColumnName="Codnota" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_CARTELLA_ORTODONTICA_PROCEDURE">
+            <EntityTypeMapping TypeName="CM_INVOICEModel.T_CARTELLA_ORTODONTICA_PROCEDURE">
+              <MappingFragment StoreEntitySet="T_CARTELLA_ORTODONTICA_PROCEDURE">
+                <ScalarProperty Name="Controllo" ColumnName="Controllo" />
+                <ScalarProperty Name="Diagnostico" ColumnName="Diagnostico" />
+                <ScalarProperty Name="InizioNuovaTerapia" ColumnName="InizioNuovaTerapia" />
+                <ScalarProperty Name="In_Uso" ColumnName="In_Uso" />
+                <ScalarProperty Name="CodProcedura" ColumnName="CodProcedura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_AGENDA_APPUNTAMENTI">
+            <EntityTypeMapping TypeName="CM_INVOICEModel.T_AGENDA_APPUNTAMENTI">
+              <MappingFragment StoreEntitySet="T_AGENDA_APPUNTAMENTI">
+                <ScalarProperty Name="CodModuloPagamento" ColumnName="CodModuloPagamento" />
+                <ScalarProperty Name="CodPrenotazione" ColumnName="CodPrenotazione" />
+                <ScalarProperty Name="ERP_NUM_CODAPPUNTAMENTO" ColumnName="ERP_NUM_CODAPPUNTAMENTO" />
+                <ScalarProperty Name="CodImportazione" ColumnName="CodImportazione" />
+                <ScalarProperty Name="CodAppuntamento_Master" ColumnName="CodAppuntamento_Master" />
+                <ScalarProperty Name="LastEditBy" ColumnName="LastEditBy" />
+                <ScalarProperty Name="LastEdit" ColumnName="LastEdit" />
+                <ScalarProperty Name="DataUltimaModifica" ColumnName="DataUltimaModifica" />
+                <ScalarProperty Name="CodImpegno" ColumnName="CodImpegno" />
+                <ScalarProperty Name="Completato" ColumnName="Completato" />
+                <ScalarProperty Name="Spostato" ColumnName="Spostato" />
+                <ScalarProperty Name="SMS" ColumnName="SMS" />
+                <ScalarProperty Name="UltimaModifica" ColumnName="UltimaModifica" />
+                <ScalarProperty Name="InseritoDa" ColumnName="InseritoDa" />
+                <ScalarProperty Name="DataIns" ColumnName="DataIns" />
+                <ScalarProperty Name="TipoApp" ColumnName="TipoApp" />
+                <ScalarProperty Name="Stato" ColumnName="Stato" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="AlleOre" ColumnName="AlleOre" />
+                <ScalarProperty Name="DalleOre" ColumnName="DalleOre" />
+                <ScalarProperty Name="DataAppuntamento" ColumnName="DataAppuntamento" />
+                <ScalarProperty Name="NTrattamento" ColumnName="NTrattamento" />
+                <ScalarProperty Name="CodPoltrona" ColumnName="CodPoltrona" />
+                <ScalarProperty Name="CodEquipe" ColumnName="CodEquipe" />
+                <ScalarProperty Name="CodMedico" ColumnName="CodMedico" />
+                <ScalarProperty Name="CodPaziente" ColumnName="CodPaziente" />
+                <ScalarProperty Name="CodAppuntamento" ColumnName="CodAppuntamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_PRESCRIZIONE">
+            <EntityTypeMapping TypeName="CM_INVOICEModel.T_PRESCRIZIONE">
+              <MappingFragment StoreEntitySet="T_PRESCRIZIONE">
+                <ScalarProperty Name="CodImportazione" ColumnName="CodImportazione" />
+                <ScalarProperty Name="LastEditBy" ColumnName="LastEditBy" />
+                <ScalarProperty Name="LastEdit" ColumnName="LastEdit" />
+                <ScalarProperty Name="UltimaModifica" ColumnName="UltimaModifica" />
+                <ScalarProperty Name="InseritoDa" ColumnName="InseritoDa" />
+                <ScalarProperty Name="Shipped" ColumnName="Shipped" />
+                <ScalarProperty Name="NumOrdine" ColumnName="NumOrdine" />
+                <ScalarProperty Name="NotePers" ColumnName="NotePers" />
+                <ScalarProperty Name="Firma" ColumnName="Firma" />
+                <ScalarProperty Name="Appunti" ColumnName="Appunti" />
+                <ScalarProperty Name="Prezzo" ColumnName="Prezzo" />
+                <ScalarProperty Name="Imballaggio" ColumnName="Imballaggio" />
+                <ScalarProperty Name="Disinfettate" ColumnName="Disinfettate" />
+                <ScalarProperty Name="Rilevate" ColumnName="Rilevate" />
+                <ScalarProperty Name="Impronte" ColumnName="Impronte" />
+                <ScalarProperty Name="RegOcclusali" ColumnName="RegOcclusali" />
+                <ScalarProperty Name="ArcoFacciale" ColumnName="ArcoFacciale" />
+                <ScalarProperty Name="Handicap" ColumnName="Handicap" />
+                <ScalarProperty Name="Problematiche" ColumnName="Problematiche" />
+                <ScalarProperty Name="Intolleranze" ColumnName="Intolleranze" />
+                <ScalarProperty Name="Allergie" ColumnName="Allergie" />
+                <ScalarProperty Name="ColoreDenti" ColumnName="ColoreDenti" />
+                <ScalarProperty Name="ConsegnaOre" ColumnName="ConsegnaOre" />
+                <ScalarProperty Name="Consegna" ColumnName="Consegna" />
+                <ScalarProperty Name="CodiceMedico" ColumnName="CodiceMedico" />
+                <ScalarProperty Name="NumeroPiano" ColumnName="NumeroPiano" />
+                <ScalarProperty Name="CodiceLaboratorio" ColumnName="CodiceLaboratorio" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="CodicePaziente" ColumnName="CodicePaziente" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="CodPrescrizione" ColumnName="CodPrescrizione" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_ANAGRAFICA_FORNITORI">
+            <EntityTypeMapping TypeName="CM_INVOICEModel.T_ANAGRAFICA_FORNITORI">
+              <MappingFragment StoreEntitySet="T_ANAGRAFICA_FORNITORI">
+                <ScalarProperty Name="LastEditBy" ColumnName="LastEditBy" />
+                <ScalarProperty Name="LastEdit" ColumnName="LastEdit" />
+                <ScalarProperty Name="ERP_NUM" ColumnName="ERP_NUM" />
+                <ScalarProperty Name="Odontotecnico" ColumnName="Odontotecnico" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="TelefonoCell" ColumnName="TelefonoCell" />
+                <ScalarProperty Name="TelefonoUfficio" ColumnName="TelefonoUfficio" />
+                <ScalarProperty Name="TelefonoCasa" ColumnName="TelefonoCasa" />
+                <ScalarProperty Name="NIMS" ColumnName="NIMS" />
+                <ScalarProperty Name="IntestazioneFatt" ColumnName="IntestazioneFatt" />
+                <ScalarProperty Name="CodiceFiscale" ColumnName="CodiceFiscale" />
+                <ScalarProperty Name="PartitaIva" ColumnName="PartitaIva" />
+                <ScalarProperty Name="Comune" ColumnName="Comune" />
+                <ScalarProperty Name="Cap" ColumnName="Cap" />
+                <ScalarProperty Name="Nazione" ColumnName="Nazione" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+                <ScalarProperty Name="Citta" ColumnName="Citta" />
+                <ScalarProperty Name="Indirizzo" ColumnName="Indirizzo" />
+                <ScalarProperty Name="RagioneSociale" ColumnName="RagioneSociale" />
+                <ScalarProperty Name="Cognome" ColumnName="Cognome" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="CodFornitore" ColumnName="CodFornitore" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_CARTELLA_ORTODONTICA_REFERTAZIONE">
+            <EntityTypeMapping TypeName="CM_INVOICEModel.T_CARTELLA_ORTODONTICA_REFERTAZIONE">
+              <MappingFragment StoreEntitySet="T_CARTELLA_ORTODONTICA_REFERTAZIONE">
+                <ScalarProperty Name="Osservazioni" ColumnName="Osservazioni" />
+                <ScalarProperty Name="Valore" ColumnName="Valore" />
+                <ScalarProperty Name="CodDato" ColumnName="CodDato" />
+                <ScalarProperty Name="NTrattamento" ColumnName="NTrattamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_STUDI">
+            <EntityTypeMapping TypeName="CM_INVOICEModel.T_STUDI">
+              <MappingFragment StoreEntitySet="T_STUDI">
+                <ScalarProperty Name="Colore" ColumnName="Colore" />
+                <ScalarProperty Name="NomeStruttura" ColumnName="NomeStruttura" />
+                <ScalarProperty Name="IndirizzoStruttura" ColumnName="IndirizzoStruttura" />
+                <ScalarProperty Name="DirettoreSanitario" ColumnName="DirettoreSanitario" />
+                <ScalarProperty Name="CartellaImmagini" ColumnName="CartellaImmagini" />
+                <ScalarProperty Name="LastEditBy" ColumnName="LastEditBy" />
+                <ScalarProperty Name="LastEdit" ColumnName="LastEdit" />
+                <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_SETUP">
+            <EntityTypeMapping TypeName="CM_INVOICEModel.T_SETUP">
+              <MappingFragment StoreEntitySet="T_SETUP">
+                <ScalarProperty Name="Editable" ColumnName="Editable" />
+                <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
+                <ScalarProperty Name="Valore" ColumnName="Valore" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_PRESC_DETTAGLIO">
+            <EntityTypeMapping TypeName="CM_INVOICEModel.T_PRESC_DETTAGLIO">
+              <MappingFragment StoreEntitySet="T_PRESC_DETTAGLIO">
+                <ScalarProperty Name="Progressione" ColumnName="Progressione" />
+                <ScalarProperty Name="ControlloQualita" ColumnName="ControlloQualita" />
+                <ScalarProperty Name="CodImportazione" ColumnName="CodImportazione" />
+                <ScalarProperty Name="LastEditBy" ColumnName="LastEditBy" />
+                <ScalarProperty Name="LastEdit" ColumnName="LastEdit" />
+                <ScalarProperty Name="UltimaModifica" ColumnName="UltimaModifica" />
+                <ScalarProperty Name="InseritoDa" ColumnName="InseritoDa" />
+                <ScalarProperty Name="DataConsegna" ColumnName="DataConsegna" />
+                <ScalarProperty Name="CodOdontotecnico" ColumnName="CodOdontotecnico" />
+                <ScalarProperty Name="CodiceCapacitaProduttiva" ColumnName="CodiceCapacitaProduttiva" />
+                <ScalarProperty Name="NumCarrello" ColumnName="NumCarrello" />
+                <ScalarProperty Name="CodMedico" ColumnName="CodMedico" />
+                <ScalarProperty Name="ColoreDenti" ColumnName="ColoreDenti" />
+                <ScalarProperty Name="CodPrescrizione" ColumnName="CodPrescrizione" />
+                <ScalarProperty Name="Num_Trat" ColumnName="Num_Trat" />
+                <ScalarProperty Name="Quantita" ColumnName="Quantita" />
+                <ScalarProperty Name="PrezzoSingolo" ColumnName="PrezzoSingolo" />
+                <ScalarProperty Name="TipoProtesi" ColumnName="TipoProtesi" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Codice" ColumnName="Codice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Nessuno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
