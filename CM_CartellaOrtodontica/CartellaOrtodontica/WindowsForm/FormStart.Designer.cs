@@ -361,6 +361,7 @@
             this.uiTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiTab.Location = new System.Drawing.Point(0, 146);
             this.uiTab.Name = "uiTab";
+            this.uiTab.ShowTabs = false;
             this.uiTab.Size = new System.Drawing.Size(1376, 588);
             this.uiTab.TabIndex = 8;
             this.uiTab.TabPages.AddRange(new Janus.Windows.UI.Tab.UITabPage[] {
@@ -483,7 +484,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1374, 566);
+            this.panel3.Size = new System.Drawing.Size(1374, 586);
             this.panel3.TabIndex = 0;
             // 
             // timeLine_Trattamenti
@@ -500,7 +501,7 @@
             this.timeLine_Trattamenti.ItemsLineStyle = Janus.Windows.TimeLine.ItemsLineStyle.SmallDots;
             this.timeLine_Trattamenti.Location = new System.Drawing.Point(0, 279);
             this.timeLine_Trattamenti.Name = "timeLine_Trattamenti";
-            this.timeLine_Trattamenti.Size = new System.Drawing.Size(1364, 94);
+            this.timeLine_Trattamenti.Size = new System.Drawing.Size(1364, 79);
             this.timeLine_Trattamenti.TabIndex = 24;
             this.timeLine_Trattamenti.Text = "timeLine2";
             this.timeLine_Trattamenti.TimescaleTiers = Janus.Windows.TimeLine.TimescaleTiers.OneTier;
@@ -515,9 +516,9 @@
             this.gridEX_NoteCliniche.DesignTimeLayout = gridEX_NoteCliniche_DesignTimeLayout;
             this.gridEX_NoteCliniche.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic;
             this.gridEX_NoteCliniche.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
-            this.gridEX_NoteCliniche.Location = new System.Drawing.Point(5, 379);
+            this.gridEX_NoteCliniche.Location = new System.Drawing.Point(5, 364);
             this.gridEX_NoteCliniche.Name = "gridEX_NoteCliniche";
-            this.gridEX_NoteCliniche.Size = new System.Drawing.Size(1359, 187);
+            this.gridEX_NoteCliniche.Size = new System.Drawing.Size(1359, 202);
             this.gridEX_NoteCliniche.TabIndex = 10;
             this.gridEX_NoteCliniche.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
             this.gridEX_NoteCliniche.Click += new System.EventHandler(this.gridEX_NoteCliniche_Click);
@@ -768,7 +769,7 @@
             this.label_CartellaOrtodontica_Paziente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label_CartellaOrtodontica_Paziente.Location = new System.Drawing.Point(0, 0);
             this.label_CartellaOrtodontica_Paziente.Name = "label_CartellaOrtodontica_Paziente";
-            this.label_CartellaOrtodontica_Paziente.Size = new System.Drawing.Size(1374, 30);
+            this.label_CartellaOrtodontica_Paziente.Size = new System.Drawing.Size(1374, 32);
             this.label_CartellaOrtodontica_Paziente.TabIndex = 0;
             this.label_CartellaOrtodontica_Paziente.Text = "PAZIENTE: ...";
             this.label_CartellaOrtodontica_Paziente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1060,7 +1061,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1375, 589);
+            this.panel1.Size = new System.Drawing.Size(1374, 566);
             this.panel1.TabIndex = 0;
             // 
             // btn_EliminaDatiClinici
@@ -1070,7 +1071,7 @@
             this.btn_EliminaDatiClinici.Image = global::CartellaOrtodontica.Properties.Resources.delete_48;
             this.btn_EliminaDatiClinici.Location = new System.Drawing.Point(6, 5);
             this.btn_EliminaDatiClinici.Name = "btn_EliminaDatiClinici";
-            this.btn_EliminaDatiClinici.Size = new System.Drawing.Size(77, 23);
+            this.btn_EliminaDatiClinici.Size = new System.Drawing.Size(76, 23);
             this.btn_EliminaDatiClinici.TabIndex = 21;
             this.btn_EliminaDatiClinici.Text = "Elimina";
             this.btn_EliminaDatiClinici.VisualStyle = Janus.Windows.UI.VisualStyle.Office2007;
@@ -1267,9 +1268,9 @@
             // uiTabPage_CartellaOrtodontica
             // 
             this.uiTabPage_CartellaOrtodontica.Controls.Add(this.panel3);
-            this.uiTabPage_CartellaOrtodontica.Location = new System.Drawing.Point(1, 21);
+            this.uiTabPage_CartellaOrtodontica.Location = new System.Drawing.Point(1, 1);
             this.uiTabPage_CartellaOrtodontica.Name = "uiTabPage_CartellaOrtodontica";
-            this.uiTabPage_CartellaOrtodontica.Size = new System.Drawing.Size(1374, 566);
+            this.uiTabPage_CartellaOrtodontica.Size = new System.Drawing.Size(1374, 586);
             this.uiTabPage_CartellaOrtodontica.TabStop = true;
             this.uiTabPage_CartellaOrtodontica.Text = "CartellaOrtodontica";
             // 
@@ -1316,7 +1317,7 @@
             this.uiTabPage_DatiClinici.Controls.Add(this.panel1);
             this.uiTabPage_DatiClinici.Location = new System.Drawing.Point(1, 21);
             this.uiTabPage_DatiClinici.Name = "uiTabPage_DatiClinici";
-            this.uiTabPage_DatiClinici.Size = new System.Drawing.Size(1375, 589);
+            this.uiTabPage_DatiClinici.Size = new System.Drawing.Size(1374, 566);
             this.uiTabPage_DatiClinici.TabStop = true;
             this.uiTabPage_DatiClinici.Text = "DatiClinici";
             // 
@@ -1573,6 +1574,7 @@
             // 
             // vMDatiCliniciBindingSource
             // 
+            this.vMDatiCliniciBindingSource.AllowNew = true;
             this.vMDatiCliniciBindingSource.DataSource = typeof(CartellaOrtodontica.ViewModels.VM_DatiClinici);
             // 
             // vMOrtodonticaReferazioneBindingSource

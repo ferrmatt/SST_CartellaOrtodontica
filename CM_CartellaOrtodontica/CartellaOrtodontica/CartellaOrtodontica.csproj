@@ -17,7 +17,7 @@
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\david\Documents\Etnacode\Iacono-public\</PublishUrl>
+    <PublishUrl>Z:\Sviluppo\iacono\cartella ortodontica\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -28,8 +28,8 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\nas\Volume_1\Sviluppo\iacono\cartella ortodontica\</UpdateUrl>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationVersion>1.0.0.5</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -64,6 +64,15 @@
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Decision_Tree.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -262,6 +271,7 @@
       <DependentUpon>Modello.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\Project.Reports.ConsensoInformativo.datasource" />
     <None Include="Properties\DataSources\Project.Reports.DatiClinici.datasource" />
     <None Include="Properties\DataSources\Project.ViewModels.ListDatiClinici.datasource" />
@@ -293,6 +303,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Decision_Tree.ico" />
     <Content Include="Img\192px-Microsoft_Word_doc_logo.svg.png" />
     <Content Include="Img\BulletPanel_24x.png" />
     <Content Include="Img\BulletPanel_exp_20x12.png" />
@@ -328,11 +339,7 @@
       <DependentUpon>Modello.edmx</DependentUpon>
       <LastGenOutput>Modello.cs</LastGenOutput>
     </Content>
-    <Content Include="Script_sql\01 - Create table T_CARTELLA_ORTODONTICA_RAGGRUPPAMENTI.sql" />
-    <Content Include="Script_sql\02 - Create table T_CARTELLA_ORTODONTICA_PROCEDURE.sql" />
-    <Content Include="Script_sql\05 - Create table T_CARTELLA_ORTODONTICA_REFERTAZIONE.sql" />
-    <Content Include="Script_sql\04 - Create table T_CARTELLA_ORTODONTICA_DATI_CLINICI.sql" />
-    <Content Include="Script_sql\03 - Create table T_CARTELLA_ORTODONTICA_SOTTOPROCEDURE.sql" />
+    <None Include="Resources\Business-man.bmp" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
