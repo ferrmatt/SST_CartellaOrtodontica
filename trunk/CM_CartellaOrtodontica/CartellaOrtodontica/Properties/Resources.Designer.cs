@@ -73,6 +73,16 @@ namespace CartellaOrtodontica.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap businessman_30 {
+            get {
+                object obj = ResourceManager.GetObject("businessman_30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cancel_2_48 {
             get {
                 object obj = ResourceManager.GetObject("cancel_2-48", resourceCulture);

@@ -564,6 +564,16 @@ namespace CartellaOrtodontica
             var value = newRow.Cells[3];
             if (value.Text == string.Empty)
                 value.Value = false;
+
+           List<VM_DatiClinici> datiClinici = (List<VM_DatiClinici>)gridEX_DatiClinici.DataSource;
+            VM_DatiClinici nuovaRiga = new VM_DatiClinici();
+            nuovaRiga.CodDato = newRow.Cells["CodDato"].Value.ToString();
+            nuovaRiga.Descrizione = newRow.Cells["Descrizione"].Value.ToString();
+            nuovaRiga.InUso = (bool) newRow.Cells["In_Uso"].Value;
+            datiClinici.Add(nuovaRiga);
+            gridEX_DatiClinici.DataSource = datiClinici;
+            gridEX_DatiClinici.Refetch(); 
+
         }
 
         private void button_save_Click(object sender, Janus.Windows.Ribbon.CommandEventArgs e)
@@ -858,38 +868,41 @@ namespace CartellaOrtodontica
                        && t.Concordato
                        && (t.DataEsecuzione == null || t.DataEsecuzione > DataInizioTerapia) && SottoprocedureControlloList.Contains(t.CodSottoprocedura.Value)
                         ).ToList();
-                int durataTerapia = trattamentiControllo.Count();
-                if (durataTerapia > 0)
+                if (trattamentiControllo.Where(x => x.DataEsecuzione.HasValue).Count()>0)
                 {
-                    DataInizioTerapia = trattamentiControllo.Where(x =>x.DataEsecuzione.HasValue).Min(x => x.DataEsecuzione.Value);
-                }
-                // Il mese attuale di terapia è pari al numero di trattamenti associati a procedure identificate come procedure di controllo 
-                // che hanno data esecuzione posteriore alla data esecuzione del più recente trattamento associato ad una procedura di inizio terapia.
-                int meseAttuale = ctx.T_TRATTAMENTI.Where(t => t.CodPaziente == codPaziente
-                         && t.CodSottoprocedura != null
-                         && !t.Cancellato
-                         && t.Concordato
-                         &&  t.DataEsecuzione >= DataInizioTerapia && SottoprocedureControlloList.Contains(t.CodSottoprocedura.Value)
-                            ).Count();
-
-                Janus.Windows.TimeLine.TimeLineItem item = null;
-                //int i = 1;
-                timeLine_Trattamenti.MaxDate = (DataInizioTerapia.HasValue ? DataInizioTerapia.Value.AddMonths(-2) : DateTime.Today);
-                timeLine_Trattamenti.MinDate = (DataInizioTerapia.HasValue ? DataInizioTerapia.Value.AddMonths(-2) : DateTime.Today);
-                timeLine_Trattamenti.Items.Clear();
-                for(int i = 1; i <= durataTerapia; i++)
-                {
-                    item = new Janus.Windows.TimeLine.TimeLineItem();
-                    item.StartTime = DataInizioTerapia.Value.AddMonths(i-1);
-                    if (i == meseAttuale)
+                    int durataTerapia = trattamentiControllo.Count();
+                    if (durataTerapia > 0)
                     {
-                        item.FormatStyle.BackColor = Color.PaleTurquoise;
+                        DataInizioTerapia = trattamentiControllo.Where(x => x.DataEsecuzione.HasValue).Min(x => x.DataEsecuzione.Value);
                     }
-                    item.Text = i + "/" + durataTerapia;
-                    item.Image = Image.FromFile("Img/businessman-30.png");
-                    timeLine_Trattamenti.Items.Add(item);
+                    // Il mese attuale di terapia è pari al numero di trattamenti associati a procedure identificate come procedure di controllo 
+                    // che hanno data esecuzione posteriore alla data esecuzione del più recente trattamento associato ad una procedura di inizio terapia.
+                    int meseAttuale = ctx.T_TRATTAMENTI.Where(t => t.CodPaziente == codPaziente
+                             && t.CodSottoprocedura != null
+                             && !t.Cancellato
+                             && t.Concordato
+                             && t.DataEsecuzione >= DataInizioTerapia && SottoprocedureControlloList.Contains(t.CodSottoprocedura.Value)
+                                ).Count();
+
+                    Janus.Windows.TimeLine.TimeLineItem item = null;
+                    //int i = 1;
+                    timeLine_Trattamenti.MaxDate = (DataInizioTerapia.HasValue ? DataInizioTerapia.Value.AddMonths(-2) : DateTime.Today);
+                    timeLine_Trattamenti.MinDate = (DataInizioTerapia.HasValue ? DataInizioTerapia.Value.AddMonths(-2) : DateTime.Today);
+                    timeLine_Trattamenti.Items.Clear();
+                    for (int i = 1; i <= durataTerapia; i++)
+                    {
+                        item = new Janus.Windows.TimeLine.TimeLineItem();
+                        item.StartTime = DataInizioTerapia.Value.AddMonths(i - 1);
+                        if (i == meseAttuale)
+                        {
+                            item.FormatStyle.BackColor = Color.PaleTurquoise;
+                        }
+                        item.Text = i + "/" + durataTerapia;
+                        item.Image = Properties.Resources.businessman_30;
+                        timeLine_Trattamenti.Items.Add(item);
+                    }
+                    timeLine_Trattamenti.MaxDate = item.StartTime.AddMonths(3);
                 }
-                timeLine_Trattamenti.MaxDate = item.StartTime.AddMonths(3);
             }
             #endregion
 
@@ -1235,7 +1248,7 @@ namespace CartellaOrtodontica
                 VM_ReportConsensoOrtodontico consensoOrtodontico = new VM_ReportConsensoOrtodontico();
                 consensoOrtodontico.DataDocumento = DateTime.Today.ToShortDateString();
 
-                var paziente = ctx.T_ANAGRAFICA_PAZIENTI.FirstOrDefault(p => p.CodPaziente == codPaziente);
+                T_ANAGRAFICA_PAZIENTI paziente = ctx.T_ANAGRAFICA_PAZIENTI.FirstOrDefault(p => p.CodPaziente == codPaziente);
 
                 consensoOrtodontico.NomeStudio = paziente.T_STUDI.NomeStruttura;
                 consensoOrtodontico.Cognome = paziente.Cognome;
@@ -1245,7 +1258,11 @@ namespace CartellaOrtodontica
                     consensoOrtodontico.IOTN = "0";
                 else
                 {
-                    consensoOrtodontico.IOTN = ctx.T_CARTELLA_ORTODONTICA_REFERTAZIONE.SingleOrDefault(d => d.CodDato == IOTN.CodDato).Valore;
+                    T_CARTELLA_ORTODONTICA_REFERTAZIONE iotnRefertato = ctx.T_CARTELLA_ORTODONTICA_REFERTAZIONE.SingleOrDefault(d => d.CodDato == IOTN.CodDato);
+                    if (iotnRefertato == null)
+                        consensoOrtodontico.IOTN = "0";
+                    else
+                        consensoOrtodontico.IOTN = ctx.T_CARTELLA_ORTODONTICA_REFERTAZIONE.SingleOrDefault(d => d.CodDato == IOTN.CodDato).Valore;
                 }
 
                 consensoOrtodontico.LuogoNascita = paziente.CittaNasc;
@@ -1300,13 +1317,54 @@ namespace CartellaOrtodontica
                         MessageBox.Show("Impossibile generare il Consenso Ortodontico perché non è stato trovato il file template word.", "Errore generico:", MessageBoxButtons.OK);
                         return;
                     }
-                    DirectoryInfo dirInput = new DirectoryInfo(pathTMP);
+
+                    T_SETUP folderImmagini = ctx.T_SETUP.FirstOrDefault(x => x.Nome == "PIANODICURA_IMMAGINI_PATH");
+                    if(folderImmagini==null)
+                    {
+                        MessageBox.Show("Setup cartella immagini mancante", "Errore generico:", MessageBoxButtons.OK);
+                        return;
+                    }
+                    string cartellaImmagini = folderImmagini.Valore;
+                    string cartellaStudio = ctx.T_STUDI.FirstOrDefault(x => x.ID == paziente.Studio).CartellaImmagini;
+                    if (!String.IsNullOrEmpty(cartellaStudio))
+                    {
+                        if (cartellaImmagini.EndsWith("\\"))
+                            cartellaStudio = cartellaImmagini + cartellaStudio;
+                        else
+                            cartellaStudio = cartellaImmagini + "\\" + cartellaStudio;
+                    }
+                    else
+                        cartellaStudio = cartellaImmagini;
+
+                    DirectoryInfo parentFolderDirectoryInfo;
+
+                    if (!Directory.Exists(cartellaStudio))
+                    {
+                        parentFolderDirectoryInfo = Directory.CreateDirectory(cartellaStudio);
+                    }
+                    else
+                    {
+                        parentFolderDirectoryInfo = new DirectoryInfo(cartellaStudio);
+                    }
+
+                    FileInfo template = new FileInfo(pathTMP);
+
+                    DirectoryInfo[] dInfos = parentFolderDirectoryInfo.GetDirectories("*_" + paziente.CodPaziente.ToString(), SearchOption.TopDirectoryOnly);
+                    string fileName = cognomePaziente + nomePaziente + DateTime.Today.ToString("ddMMyyyy");
+                    string fullPath = dInfos[0].FullName + "\\" + fileName+".doc";
+
+                    template.CopyTo(fullPath);
+
+                    CreateWordDocument(fullPath,fileName, consensoOrtodontico, datiClinici);
+
+               /*     DirectoryInfo dirInput = new DirectoryInfo(pathTMP);
                     saveFileDoc.Filter = "doc (*.doc)|*.doc";
                     saveFileDoc.FileName = cognomePaziente + nomePaziente + DateTime.Today.ToString("ddMMyyyy");
                     if (saveFileDoc.ShowDialog() == DialogResult.OK)
                     {
                         CreateWordDocument(dirInput.FullName, saveFileDoc.FileName, consensoOrtodontico, datiClinici);
-                    }
+                    } */
+                   
                 }
                 else
                 {
@@ -1592,8 +1650,18 @@ namespace CartellaOrtodontica
                     var rows = gridEX_DatiClinici.GetCheckedRows();
                     foreach (var row in rows)
                     {
-                        string id = row.Cells[1].Value.ToString();
-                        var ris = ctx.T_CARTELLA_ORTODONTICA_DATI_CLINICI.Single(o => o.CodDato == id);
+                        string id = row.Cells["CodDato"].Value.ToString();
+                        var ris = ctx.T_CARTELLA_ORTODONTICA_DATI_CLINICI.FirstOrDefault(o => o.CodDato == id);
+                        if(ris==null)
+                        {
+                            List<VM_DatiClinici> datiClinici = (List<VM_DatiClinici>)gridEX_DatiClinici.DataSource;
+                            VM_DatiClinici daEliminare = datiClinici.FirstOrDefault(x => x.CodDato == id);
+                            if(daEliminare!=null)
+                            {
+                                datiClinici.Remove(daEliminare);
+                            }
+                            continue;
+                        }
                         // non ci devono essere trattamenti associati
                         if (ctx.T_CARTELLA_ORTODONTICA_REFERTAZIONE.Count(t => t.CodDato == id) == 0)
                             ctx.T_CARTELLA_ORTODONTICA_DATI_CLINICI.Remove(ris);
