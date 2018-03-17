@@ -1065,7 +1065,7 @@ namespace CartellaOrtodontica
             try
             {
                 Cursor.Current = Cursors.WaitCursor;
-                int NTrattamento = Convert.ToInt32(gridEX_NoteCliniche.CurrentRow.Cells[0].Value);
+            //    int NTrattamento = Convert.ToInt32(gridEX_NoteCliniche.CurrentRow.Cells[0].Value);
 
                 var trattamentiId = (from TRATTAMENTI in ctx.T_TRATTAMENTI.Where(t => t.CodPaziente == codPaziente)
                                      join Procedure in ctx.T_CARTELLA_ORTODONTICA_PROCEDURE.Where(p => p.Diagnostico == true && p.In_Uso) on TRATTAMENTI.CodProcedura equals Procedure.CodProcedura
